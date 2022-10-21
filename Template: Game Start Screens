@@ -1,12 +1,6 @@
 function setup () {
   cnv = createCanvas(700, 600);
   
-  settings = createButton("Settings");
-  settings.position(20,540);
-  settings.style('color:#0096FF')
-  settings.style('font-size', '25px')
-  settings.mousePressed(settingsScreen) 
-  
   back = createButton("Back");
   back.position(600,540);
   back.style('color:#0096FF');
