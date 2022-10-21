@@ -1,5 +1,5 @@
 function setup () {
-  cnv = createCanvas(700, 600);
+  cnv = createCanvas(700, 600); 
   
   back = createButton("Back");
   back.position(600,540);
@@ -17,21 +17,17 @@ function setup () {
 function draw() {
   background('#0096FF');
   
-  rect(350-75,170,150,40);
-  let titleText = text("Memory",350,200);
+  rect(350-75,170,150,60, 40);
+  let titleText = text("Memory",350,212);
   titleText.textAlign(CENTER);
   titleText.textSize(12);
   
   rect(135,280,430,100)
   let instrText = text("Instructions: <text>",350,335)
   instrText.textAlign(CENTER);
-  instrText.textSize(25);
+  instrText.textSize(35);
   
   // FIXME: Find why instrText and titleText's textSize functions are swapped.
-}
-
-function settingsScreen() {
-  
 }
 
 function memoryGame() {
