@@ -1,72 +1,40 @@
-function setup () {
-  cnv = createCanvas(400, 200);
+function setup() {
+  createCanvas(400, 200);
+  gameSelection = createButton("Game Selection"); //Gear shape icon???
+  gameSelection.size(120);
+  gameSelection.position(141,130);
+  gameSelection.mousePressed(gameSelect);
   
   settings = createButton("Settings");
   settings.size(80);
   settings.position(10,170);
-  settings.mousePressed(settingsScreen) 
-  
-  back = createButton("Back");
-  back.size(50);
-  back.position(340,170);
-  back.mousePressed(homeScreen);
+  settings.mousePressed(gameSelect);
+}
 
-  memory = createButton("Memory"); 
-  memory.size(80);
-  memory.position(161,105);
-  memory.mousePressed();
-  
-  matching = createButton("Matching"); 
-  matching.size(80);
-  matching.position(61,105);
-  matching.mousePressed(matchingGame);
-  
-  tracing = createButton("Tracing"); 
-  tracing.size(80);
-  tracing.position(261,105);
-  tracing.mousePressed(tracingGame);
-  
-  let ans1 = "hi"
-  let ans2 = "hi"
-  if (match(ans1,ans2) == null) {
-    memory = createButton("Memory"); 
-    memory.size(120);
-    memory.position(141,110);
-    memory.mousePressed(memoryGame);
-  }
-}      
-
+//Start Screen
 function draw() {
-  background('#0096FF');
   
-  let FMS;
-  rect(125,40,150,40)
-  FMS = text("Project FMS",130,70)
-  textSize(25)
-}
-
-function memoryGame() {
+  background('#0096FF')
   
-}
-
-function tracingGame() {
+  r1 = rect(125,70,150,40)
+  textAlign(CENTER)
+  textSize(25);
+  triangle1 = triangle(45,40,80,80,25,90);
+  triangle2 = triangle(400-45,40,400-80,80,400-25,90);
   
-}
-
-function matchingGame() {
   
-}
-
-function settingsScreen() {
-  
-}
-
-function homeScreen() {
-  cnv.remove()
-  function setup() {
-    createCanvas(800,700)
+  fill (125,250,250);{
+    triangle1
+    triangle2
   }
-  function draw() {
-  background('#0096FF');
-  }
+  text("Project FMS", 200, 100)
+  
+}
+
+//Game Selection Screen
+function gameSelect() {
+  
+}
+
+function settingsScreen() {  
 }
