@@ -8,19 +8,19 @@ function setup () {
   back.mousePressed(homeScreen);
 
   memory = createButton("Memory");
-  memory.position(80,300);
+  memory.position(80,350);
   memory.style('color:#0096FF');
   memory.style('font-size','35px')
   memory.mousePressed(memoryGame);
   
   matching = createButton("Matching");
-  matching.position(275,300);
+  matching.position(275,350);
   matching.style('color:#0096FF');
   matching.style('font-size','35px')
   matching.mousePressed(matchingGame);
   
   tracing = createButton("Tracing");
-  tracing.position(485,300);
+  tracing.position(485,350);
   tracing.style('color:#0096FF');
   tracing.style('font-size','35px')
   tracing.mousePressed(tracingGame);
@@ -39,8 +39,8 @@ function draw() {
   background('#0096FF');
   
   let FMS;
-  rect(200,120,300,80,40)
-  FMS = text("Project FMS",213,177)
+  rect(200,170,300,80,40)
+  FMS = text("Project FMS",213,227)
   textSize(50)
 }
 
