@@ -1,9 +1,37 @@
-function setup() {
-  createCanvas(700, 600);
-  background('white');
-  fill('#0096FF');
-  rect(25, 25, 650, 525);
-  button = createButton();
-  button.position(100, 500);
-  button.mousePressed(settingsPage);
+function setup () {
+  cnv = createCanvas(700, 600); 
+  
+  back = createButton("Back");
+  back.position(100,450);
+  back.style('color:#0096FF');
+  back.style('font-size','25px')
+  back.mousePressed(homeScreen);
+  
+  start = createButton("Start")
+  start.position(540,450);
+  start.style('color:#0096FF');
+  start.style('font-size','25px');
+  start.mousePressed(memoryGame);
+}
+
+function draw(){
+  background('#0096FF');
+  
+  rect(350-75,170,150,60, 40);
+  let titleText = text("Memory",350,212);
+  titleText.textAlign(CENTER);
+  titleText.textSize(18);
+  
+  rect(135,280,430,100)
+  let instrText = text("Instructions: A page will show multiple shapes with different colors. After <#> seconds a page will appear with a question and you must answer the question correctly.", 135, 285, 430, 200)
+  instrText.textAlign(CENTER);
+  instrText.textSize(35);
+}
+
+function memoryGame() {
+  remove();
+}
+
+function homeScreen() {
+  
 }
