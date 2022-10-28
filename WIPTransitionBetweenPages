@@ -1,0 +1,90 @@
+var s = function( a ) {
+  a.setup = function() {
+    a.createCanvas(700, 600);
+    a.gameSelection = a.createButton("Game Selection");
+    a.gameSelection.position(217,340);
+    a.gameSelection.style('color:#0096FF');
+    a.gameSelection.style('font-size','35px')
+    a.gameSelection.mousePressed(a.gameSelect);
+    a.print('x')
+  }
+
+  //Start Screen
+  a.draw = function() {
+  
+    a.background('#0096FF')
+  
+    a.rect(200,160,300,80,40)
+    a.text("Project FMS",213,217)
+    a.textSize(50)
+  
+    a.triangle1 = a.triangle(45*2,30*2,80*2,70*2,25*2,80*2);
+    a.rect1 = a.rect(600-90,30*2,160,70);
+    a.ellipse1 = a.ellipse(120,460,120,90)
+    a.arc1 = a.arc(700-120,510,80,200,400,88,a.PIE)
+  
+    
+  }
+  
+  a.gameSelect = function() {
+    a.remove()
+    
+  }
+}
+
+var myp5 = new p5(s, 'c1')
+
+var t = function ( b ) {
+//Game Selection Screen 
+  b.setup = function() {
+    b.createCanvas(700, 600); 
+  
+    b.back = b.createButton("Back");
+    b.back.position(600,540);
+    b.back.style('color:#0096FF');
+    b.back.style('font-size','25px')
+    b.back.mousePressed(b.homeScreen);
+  
+    b.start = b.createButton("Start")
+    b.start.position(320,440);
+    b.start.style('color:#0096FF');
+    b.start.style('font-size','25px');
+    b.start.mousePressed(b.memoryGame);
+  }      
+
+  b.draw = function() {
+    var titleText
+    var instrText
+    
+    b.background('#0096FF');
+    
+    b.rect(350-75,170,150,60, 40);
+    b.titleText = b.text("Memory",350,212);
+    b.titleText.textAlign(b.CENTER);
+    b.titleText.textSize(12);
+  
+    b.rect(135,280,430,100)
+    b.instrText = b.text("Instructions: <text>",350,335)
+    b.instrText.textAlign(b.CENTER);
+    b.instrText.textSize(35);
+  
+    // FIXME: Find why instrText and titleText's textSize functions are       swapped.
+  }
+
+  b.memoryGame = function() {
+  
+  }
+
+  b.homeScreen = function() {
+    b.remove()
+    b.setup = function() {
+    b.createCanvas(800,700)
+    }
+    b.draw = function() {
+      b.background('#0096FF');
+    }
+  }
+  
+}
+
+var myp5 = new p5(t, 'c2');
