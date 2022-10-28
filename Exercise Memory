@@ -35,3 +35,34 @@ function memoryGame() {
 function homeScreen() {
   
 }
+
+//Actual Exercise Game//
+let timeLimit = 5;
+let countDown;
+
+function setup () {
+  createCanvas(700, 600); 
+  frameRate(30);
+}
+
+function draw(){
+  background('#0096FF');
+  textSize(50);
+  text("LEVEL 1", 275, 50);
+  fill('#FDF800');
+  circle(150, 400, 100);
+  fill('#FF1111');
+  triangle(300, 300, 500, 600, 400, 400);
+  rect(150, 150, 200, 100)
+  let presentTime = int(millis() / 1000);
+  countDown = timeLimit - presentTime;
+  
+  if (countDown < 0) {
+    countDown = 0;
+    //This will switch to the next page of questions once the time reaches zero//
+  }
+  
+  textSize(24);
+  fill(0);
+  text("TIME LEFT: " + countDown, 25, 575);
+}
