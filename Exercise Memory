@@ -39,10 +39,23 @@ function homeScreen() {
 //Actual Exercise Game//
 let timeLimit = 5;
 let countDown;
+let answer;
+let wrongAnswer;
 
 function setup () {
   createCanvas(700, 600); 
   frameRate(30);
+}
+
+function polygon(x, y, radius, npoints) {
+  let angle = TWO_PI / npoints;
+  beginShape();
+  for (let a = 0; a < TWO_PI; a += angle) {
+    let sx = x + cos(a) * radius;
+    let sy = y + sin(a) * radius;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
 }
 
 function draw(){
@@ -50,19 +63,33 @@ function draw(){
   textSize(50);
   text("LEVEL 1", 275, 50);
   fill('#FDF800');
-  circle(150, 400, 100);
+  circle(150, 350, 200);
   fill('#FF1111');
-  triangle(300, 300, 500, 600, 400, 400);
-  rect(150, 150, 200, 100)
+  triangle(450, 200, 450, 350, 600, 350);
+  fill('Green');
+  rect(100, 100, 200, 100)
+  fill('Purple');
+  polygon(600, 150, 70, 5);
+  polygon(350, 450, 80, 5);
   let presentTime = int(millis() / 1000);
   countDown = timeLimit - presentTime;
-  
-  if (countDown < 0) {
-    countDown = 0;
-    //This will switch to the next page of questions once the time reaches zero//
-  }
   
   textSize(24);
   fill(0);
   text("TIME LEFT: " + countDown, 25, 575);
+  
+  if (countDown < 0) {
+    countDown = 0;
+    clear();
+    background('#0096FF');
+    fill('Black');
+    textSize(20);
+    let questionText = text("What shapes did you see that have the same shape and color? Answer by clicking one of the buttons below.", 110, 25, 500, 50); 
+    answer = createButton("Purple Pentagons");
+    answer.position(100, 200);
+    answer.mousePressed();
+    wrongAnswer = createButton("Red Triangles");
+    wrongAnswer.position(400, 200);
+    wrongAnswer.mousePressed();
+  }
 }
