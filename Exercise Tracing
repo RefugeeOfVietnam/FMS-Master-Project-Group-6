@@ -1,48 +1,82 @@
 var level = 1;
+let userState = "play"
+let attemptNum = 0
 
 function setup() {
   createCanvas(700, 600);
   let numbers = [1,2,3]
+  let correct;
+  let userState = "play"
   numDrawing = random(numbers)
   numDrawing = 3; //fixme
+  
 }
 
 function draw() {
   background('#0096FF')
+
+  if (userState == "tryAgain") {
+    rect(100,100,100,100)
+    
+    retry = createDiv("")
+    retry.position(300,429)
+    retry.size(100,70)
+    retry.mouseOver(retrySelected)
+  }
   
-  // based on the count different things happen
-  if (level == 1) {
-    if(numDrawing == 1){
-      ellipseMode(RADIUS);
-      fill(255);
-      ellipse(350, 300, 200, 200); // Outer white ellipse
-      ellipseMode(CENTER);
-      fill(100);
-      ellipse(350, 300, 200, 200); // Inner gray ellipse    
+  if (userState == "play") {
+    text("Attempts remaining: " + (3 - attemptNum),20,50)
+    if (level == 1) {
+      if(numDrawing == 1) {
+        ellipseMode(RADIUS);
+        fill(255);
+        ellipse(350, 300, 200, 200); // Outer white ellipse
+        ellipseMode(CENTER);
+        fill(100);
+        ellipse(350, 300, 200, 200); // Inner gray ellipse    
     }
-  
-    if(numDrawing == 2){
-      rect(100,250,500,100)
-      let start = text("Start", 320, 440)
-      start.textSize(25)
-      let finish = text("Finish", 480, 305)
-      finish.textSize(25)
+      if(numDrawing == 2) {
+        rect(100,250,500,100)
+        let start = text("Start", 320, 440)
+        start.textSize(25)
+        let finish = text("Finish", 480, 305)
+        finish.textSize(25)
     }
-  
-    if(numDrawing == 3){
-      rect(300,100,100,400)
-      let start = text("Start", 320, 470)
-      textSize(25)
-      let finish = text("Finish", 315, 140)
+      if(numDrawing == 3) {
+        rect(300,100,100,400)
+        let start = text("Start", 320, 470)
+        textSize(25)
+        let finish = text("Finish", 315, 140)
       
-      correct = createDiv("")
-      correct.position(300,100)
-      correct.size(97,70)
-      correct.style("border: 2px solid")
-      correct.style('background-color', '220')
-      correct.mouseOver(goodJob) 
+        correct = createDiv("")
+        correct.position(300,100)
+        correct.size(100,70)
+        correct.mouseOver(goodJob) 
+      
+        incorrect1 = createDiv("")
+        incorrect1.position(0,0)
+        incorrect1.size(300,600)
+        incorrect1.mouseOver(oops)
+        
+        incorrect2 = createDiv("")
+        incorrect2.position(0,500)
+        incorrect2.size(700,100)
+        incorrect2.mouseOver(oops)
+        
+        incorrect3 = createDiv("")
+        incorrect3.position(0,0)
+        incorrect3.size(700,100)
+        incorrect3.mouseOver(oops)
+        
+        incorrect4 = createDiv("")
+        incorrect4.position(400,0)
+        incorrect4.size(300,600)
+        incorrect4.mouseOver(oops)
+        
+      }    
     }
   }
+  
   
   if (level == 2) {
     
@@ -53,9 +87,15 @@ function draw() {
   }
 }
 
-// everytime the user presses on the mouse or trackpad
-// the count goes up 
-function goodJob(){
-  correct.remove()
+function goodJob() {
   level = level + 1;
+}
+
+function oops() {
+  userState = "tryAgain"
+}
+
+function retrySelected() {
+  userState = "play"
+  attemptNum = attemptNum + 1;
 }
