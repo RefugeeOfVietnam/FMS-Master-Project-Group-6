@@ -19,8 +19,8 @@ function draw() {
     rect(100,100,100,100)
     
     retry = createDiv("")
-    retry.position(300,429)
-    retry.size(100,70)
+    retry.position(300,170)
+    retry.size(100,330)
     retry.mouseOver(retrySelected)
   }
   
