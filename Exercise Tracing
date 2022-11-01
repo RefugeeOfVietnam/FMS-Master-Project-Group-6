@@ -8,7 +8,7 @@ function setup() {
   let correct;
   let userState = "play"
   numDrawing = random(numbers)
-  numDrawing = 3; //fixme
+  //numDrawing = 3; //fixme
   
 }
 
@@ -16,11 +16,17 @@ function draw() {
   background('#0096FF')
 
   if (userState == "tryAgain") {
-    rect(100,100,100,100)
+    let r1 = rect(150,100,400,150)
+    r1.text("Not Quite",250,188,CENTER)
+    r1.textSize(20)
+    
+    let r2 = rect(300,430,100,70)
+    r2.text("Try Again",308,470)
+    r2.textSize(50)
     
     retry = createDiv("")
     retry.position(300,170)
-    retry.size(100,330)
+    retry.size(100,329)
     retry.mouseOver(retrySelected)
   }
   
