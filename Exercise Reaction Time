@@ -1,6 +1,6 @@
 
  
-//these variables are for the hit the target game
+
 var x = 250;
 var y = 300;
 var d = 40;
