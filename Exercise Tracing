@@ -32,11 +32,11 @@ function draw() {
   
   if (userState == "nextLevel") {
     let r1 = rect(150,100,400,150)
-    r1.text("Not Quite",250,188)
-    r1.textSize(20)
+    r1.text("Great Job!",240,188)
+    r1.textSize(18)
     
     let r2 = rect(300,430,100,70)
-    r2.text("Try Again",308,470)
+    r2.text("Next Level",308,470)
     r2.textSize(50)
     
     nextLvl = createDiv("")
@@ -152,7 +152,7 @@ function draw() {
 
 function goodJob() {
   level = level + 1;
-  userState = "nextLvl";
+  userState = "nextLevel";
 }
 
 function oops() {
