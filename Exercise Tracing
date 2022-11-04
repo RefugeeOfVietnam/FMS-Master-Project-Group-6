@@ -1,4 +1,4 @@
-var level = 1;
+var level = 2;
 let userState = "play"
 let attemptNum = 0
 
@@ -8,7 +8,7 @@ function setup() {
   let correct;
   let userState = "play"
   numDrawing = random(numbers)
-  //numDrawing = 3; //fixme
+  numDrawing = 3; //fixme
   
 }
 
@@ -17,7 +17,7 @@ function draw() {
 
   if (userState == "tryAgain") {
     let r1 = rect(150,100,400,150)
-    r1.text("Not Quite",250,188,CENTER)
+    r1.text("Not Quite",250,188)
     r1.textSize(20)
     
     let r2 = rect(300,430,100,70)
@@ -43,14 +43,14 @@ function draw() {
     }
       if(numDrawing == 2) {
         rect(100,250,500,100)
-        let start = text("Start", 320, 440)
-        start.textSize(25)
+        let startLvl = text("Start", 320, 440)
+        startLvl.textSize(25)
         let finish = text("Finish", 480, 305)
         finish.textSize(25)
     }
       if(numDrawing == 3) {
         rect(300,100,100,400)
-        let start = text("Start", 320, 470)
+        let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 140)
       
@@ -80,16 +80,48 @@ function draw() {
         incorrect4.mouseOver(oops)
         
       }    
+    }  
+  
+    if (level == 2) {
+      if(numDrawing == 3) {
+        rect(300,300,100,200)
+        rect(400,300,200,50)
+        rect(550,100,50,200)
+        rect(300,100,250,50)
+        let startLvl = text("Start", 320, 470)
+        textSize(25)
+        let finish = text("Finish", 315, 135)
+      
+        correct = createDiv("")
+        correct.position(300,100)
+        correct.size(100,70)
+        correct.mouseOver(goodJob) 
+      
+        incorrect1 = createDiv("")
+        incorrect1.position(0,0)
+        incorrect1.size(300,600)
+        incorrect1.mouseOver(oops)
+        
+        incorrect2 = createDiv("")
+        incorrect2.position(0,500)
+        incorrect2.size(700,100)
+        incorrect2.mouseOver(oops)
+        
+        incorrect3 = createDiv("")
+        incorrect3.position(0,0)
+        incorrect3.size(700,100)
+        incorrect3.mouseOver(oops)
+        
+        incorrect4 = createDiv("")
+        incorrect4.position(400,0)
+        incorrect4.size(300,600)
+        incorrect4.mouseOver(oops)
+      }
     }
-  }
   
-  
-  if (level == 2) {
+    if (level == 3) {
     
-  }
-  
-  if (level == 3) {
-    
+    }
   }
 }
 
