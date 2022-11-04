@@ -1,1 +1,94 @@
 
+ 
+//these variables are for the hit the target game
+var x = 250;
+var y = 300;
+var d = 40;
+var targetx = 300;
+var targety = 300;
+var score2 = 0;
+
+  background(135,206,235)
+  textSize(30)
+  fill(0);
+  text('Hit the square', 140, 80)
+  text('Get 5 to win!', 150, 120)
+  text('(Move with arrow keys', 87, 160)
+  text('and over the square)', 100, 210)
+  text(timer, width/2, height/2);
+  stroke(0);
+ 
+  if (keyIsPressed){
+    if(keyCode == LEFT_ARROW){
+      x = x - 3;
+    }
+    else if(keyCode == RIGHT_ARROW){
+      x = x + 3;
+    }
+    else if(keyCode == UP_ARROW){
+      y = y - 3;
+    }
+    else if(keyCode == DOWN_ARROW){
+      y = y + 3;
+    }
+   
+  if (x+(d/2) >= width || x-(d/2) == 0){
+    x = 250;
+    y = 300;
+  }
+  if (y+(d/2) >= height || y-(d/2) == 0){
+    x = 250;
+    y = 300;
+  }
+ 
+  }  
+ 
+  fill(150,150,150);
+  ellipse(x,y,d,d)
+  square(targetx, targety, 40)
+ 
+  levelOne();
+  if (frameCount % 60 == 0 && timer > 0) { // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
+    timer --;
+  }
+  if (timer == 0) {
+    background(255,0,0);
+    text("GAME OVER", width/2, height*0.7);
+   
+   
+  }
+ 
+ 
+   
+  function levelOne(){
+    fill(0);
+    text("Score: " + score2, width/2, height - 15)
+    var distToBall = dist(targetx, targety, x, y);
+    if (distToBall < 40){
+      targetx = random(width);
+      targety = random(height);
+      score2 = score2 + 1;
+      if(ding.isPlaying() == false){
+        ding.play()
+       
+       
+      }
+     
+    }
+    if (score2 >= 5) {
+  text (("Good Job You Win!"), width-380, height-250);
+      timer = 10;;
+}
+   
+  }
+ 
+  //BACK BUTTON FUNCTION
+    fill(173,216,230);
+    rect(375, 15, 110, 40)
+    fill(0);
+    textSize(30)
+    text('Back', 390, 45)
+}
+ 
+}
+ 
