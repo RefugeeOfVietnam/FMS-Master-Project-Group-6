@@ -78,7 +78,7 @@ function draw() {
         correct.mouseOver(goodJob) 
       
         //"+1" and "-2" in code below so variables aren't 
-        //iteratedconstantly when mouse is on the border.
+        //iterated constantly when mouse is on the border.
         
         incorrect1 = createDiv("")
         incorrect1.position(0+1,0+1)
