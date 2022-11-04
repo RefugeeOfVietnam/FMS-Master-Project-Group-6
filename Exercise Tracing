@@ -1,4 +1,4 @@
-var level = 2;
+var level = 1;
 let userState = "play"
 let attemptNum = 0
 
@@ -25,8 +25,8 @@ function draw() {
     r2.textSize(50)
     
     retry = createDiv("")
-    retry.position(300,170)
-    retry.size(100,329)
+    retry.position(300,430)
+    retry.size(100,70)
     retry.mouseOver(retrySelected)
   }
   
@@ -109,7 +109,7 @@ function draw() {
       
         correct = createDiv("")
         correct.position(300,100)
-        correct.size(100,70)
+        correct.size(100,50)
         correct.mouseOver(goodJob) 
       
         incorrect1 = createDiv("")
@@ -133,14 +133,14 @@ function draw() {
         incorrect4.mouseOver(oops)
         
         incorrect5 = createDiv("")
-        incorrect5.position(400,350)
-        incorrect5.size(200,150)
+        incorrect5.position(0,500)
+        incorrect5.size(700,100)
         incorrect5.mouseOver(oops)
         
-        incorrect5 = createDiv("")
-        incorrect5.position(400,350)
-        incorrect5.size(200,150)
-        incorrect5.mouseOver(oops)
+        incorrect6 = createDiv("")
+        incorrect6.position(300,150)
+        incorrect6.size(250,150)
+        incorrect6.mouseOver(oops)
       }
     }
   
