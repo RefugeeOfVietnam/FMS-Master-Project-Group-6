@@ -69,30 +69,30 @@ function draw() {
         textSize(25)
         let finish = text("Finish", 315, 140)
       
-        correct = createDiv("")
-        correct.position(300,100)
-        correct.size(100,70)
-        correct.mouseOver(goodJob) 
+        correctL1D3 = createDiv("")
+        correctL1D3.position(300,100)
+        correctL1D3.size(100,70)
+        correctL1D3.mouseOver(goodJobL1D3) 
       
-        incorrect1 = createDiv("")
-        incorrect1.position(0,0)
-        incorrect1.size(300,600)
-        incorrect1.mouseOver(oops)
+        incorrect1L1D3 = createDiv("")
+        incorrect1L1D3.position(0,0)
+        incorrect1L1D3.size(300,600)
+        incorrect1L1D3.mouseOver(oopsL1D3)
         
-        incorrect2 = createDiv("")
-        incorrect2.position(0,500)
-        incorrect2.size(700,100)
-        incorrect2.mouseOver(oops)
+        incorrect2L1D3 = createDiv("")
+        incorrect2L1D3.position(0,500)
+        incorrect2L1D3.size(700,100)
+        incorrect2L1D3.mouseOver(oopsL1D3)
         
-        incorrect3 = createDiv("")
-        incorrect3.position(0,0)
-        incorrect3.size(700,100)
-        incorrect3.mouseOver(oops)
+        incorrect3L1D3 = createDiv("")
+        incorrect3L1D3.position(0,0)
+        incorrect3L1D3.size(700,100)
+        incorrect3L1D3.mouseOver(oopsL1D3)
         
-        incorrect4 = createDiv("")
-        incorrect4.position(400,0)
-        incorrect4.size(300,600)
-        incorrect4.mouseOver(oops)
+        incorrect4L1D3 = createDiv("")
+        incorrect4L1D3.position(400,0)
+        incorrect4L1D3.size(300,600)
+        incorrect4L1D3.mouseOver(oopsL1D3)
         
       }    
     }  
@@ -107,40 +107,40 @@ function draw() {
         textSize(25)
         let finish = text("Finish", 315, 135)
       
-        correct = createDiv("")
-        correct.position(300,100)
-        correct.size(100,50)
-        correct.mouseOver(goodJob) 
+        correctL2D3 = createDiv("")
+        correctL2D3.position(300,100)
+        correctL2D3.size(100,50)
+        correctL2D3.mouseOver(goodJobL2D3) 
       
-        incorrect1 = createDiv("")
-        incorrect1.position(0,0)
-        incorrect1.size(300,600)
-        incorrect1.mouseOver(oops)
+        incorrect1L2D3 = createDiv("")
+        incorrect1L2D3.position(0,0)
+        incorrect1L2D3.size(300,600)
+        incorrect1L2D3.mouseOver(oopsL2D3)
         
-        incorrect2 = createDiv("")
-        incorrect2.position(300,0)
-        incorrect2.size(400,100)
-        incorrect2.mouseOver(oops)
+        incorrect2L2D3 = createDiv("")
+        incorrect2L2D3.position(300,0)
+        incorrect2L2D3.size(400,100)
+        incorrect2L2D3.mouseOver(oopsL2D3)
         
-        incorrect3 = createDiv("")
-        incorrect3.position(600,100)
-        incorrect3.size(100,500)
-        incorrect3.mouseOver(oops)
+        incorrect3L2D3 = createDiv("")
+        incorrect3L2D3.position(600,100)
+        incorrect3L2D3.size(100,500)
+        incorrect3L2D3.mouseOver(oopsL2D3)
         
-        incorrect4 = createDiv("")
-        incorrect4.position(400,350)
-        incorrect4.size(200,150)
-        incorrect4.mouseOver(oops)
+        incorrect4L2D3 = createDiv("")
+        incorrect4L2D3.position(400,350)
+        incorrect4L2D3.size(200,150)
+        incorrect4L2D3.mouseOver(oopsL2D3)
         
-        incorrect5 = createDiv("")
-        incorrect5.position(0,500)
-        incorrect5.size(700,100)
-        incorrect5.mouseOver(oops)
+        incorrect5L2D3 = createDiv("")
+        incorrect5L2D3.position(0,500)
+        incorrect5L2D3.size(700,100)
+        incorrect5L2D3.mouseOver(oopsL2D3)
         
-        incorrect6 = createDiv("")
-        incorrect6.position(300,150)
-        incorrect6.size(250,150)
-        incorrect6.mouseOver(oops)
+        incorrect6L2D3 = createDiv("")
+        incorrect6L2D3.position(300,150)
+        incorrect6L2D3.size(250,150)
+        incorrect6L2D3.mouseOver(oopsL2D3)
       }
     }
   
@@ -150,20 +150,35 @@ function draw() {
   }
 }
 
-function goodJob() {
+function goodJobL1D3() {
   level = level + 1;
   userState = "nextLevel";
+  removeElements()
 }
 
-function oops() {
+function goodJobL2D3() {
+  level = level + 1;
+  userState = "nextLevel";
+  removeElements()
+}
+
+function oopsL1D3() {
   userState = "tryAgain"
+  removeElements()
+}
+
+function oopsL2D3() {
+  userState = "tryAgain"
+  removeElements()
 }
 
 function retrySelected() {
   userState = "play"
   attemptNum = attemptNum + 1;
+  removeElements()
 }
 
 function toNextLevel() {
   userState = "play"
+  removeElements()
 }
