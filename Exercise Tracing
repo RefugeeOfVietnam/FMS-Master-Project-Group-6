@@ -30,6 +30,21 @@ function draw() {
     retry.mouseOver(retrySelected)
   }
   
+  if (userState == "nextLevel") {
+    let r1 = rect(150,100,400,150)
+    r1.text("Not Quite",250,188)
+    r1.textSize(20)
+    
+    let r2 = rect(300,430,100,70)
+    r2.text("Try Again",308,470)
+    r2.textSize(50)
+    
+    nextLvl = createDiv("")
+    nextLvl.position(300,170)
+    nextLvl.size(100,329)
+    nextLvl.mouseOver(toNextLevel)
+  }
+  
   if (userState == "play") {
     text("Attempts remaining: " + (3 - attemptNum),20,50)
     if (level == 1) {
@@ -127,6 +142,7 @@ function draw() {
 
 function goodJob() {
   level = level + 1;
+  userState = "nextLvl";
 }
 
 function oops() {
@@ -136,4 +152,8 @@ function oops() {
 function retrySelected() {
   userState = "play"
   attemptNum = attemptNum + 1;
+}
+
+function toNextLevel() {
+  userState = "play"
 }
