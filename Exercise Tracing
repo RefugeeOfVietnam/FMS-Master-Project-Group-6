@@ -23,6 +23,7 @@ function draw() {
   if (userState == "home") {
     triangle(54,278,78,89.345,566)
   }
+  
   if (userState == "tryAgain") {
     
     text("Attempts remaining: " + (3 - attemptNum),20,50)
@@ -238,6 +239,9 @@ function draw() {
       }
     }
   }
+  if (attemptNum >= 3) {
+    gameOver();
+  }
 }
 
 function goodJob() {
@@ -271,5 +275,9 @@ function youWin() {
 //FIXME
 function homeScreen() {
   userState = "home"
+  removeElements()
+}
+
+function gameOver() {
   removeElements()
 }
