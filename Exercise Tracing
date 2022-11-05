@@ -14,8 +14,17 @@ function setup() {
 
 function draw() {
   background('#0096FF')
+  home = createButton("Home")
+  home.position(600,530)
+  home.size(70,40)
+  home.style("font-size", "20px")
+  
 
+  if (userState == "home") {
+    triangle(54,278,78,89.345,566)
+  }
   if (userState == "tryAgain") {
+    
     text("Attempts remaining: " + (3 - attemptNum),20,50)
     textSize(50)
     
@@ -165,7 +174,7 @@ function draw() {
         correct = createDiv("")
         correct.position(300,100)
         correct.size(100,35)
-        correct.mouseOver(goodJob) 
+        correct.mouseOver(youWin) 
       
         incorrect1 = createDiv("")
         incorrect1.position(0+2,0+2)
@@ -251,5 +260,16 @@ function retrySelected() {
 
 function toNextLevel() {
   userState = "play"
+  removeElements()
+}
+
+function youWin() {
+  userState = "win"
+  removeElements()
+}
+
+//FIXME
+function homeScreen() {
+  userState = "home"
   removeElements()
 }
