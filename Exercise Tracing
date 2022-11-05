@@ -1,4 +1,4 @@
-var level = 3;
+var level = 1;
 let userState = "play"
 let attemptNum = 0
 
@@ -198,13 +198,13 @@ function draw() {
         incorrect6.mouseOver(oops)
         
         incorrect7 = createDiv("")
-        incorrect7.position(0+2,0+2)
-        incorrect7.size(300-2,300-2)
+        incorrect7.position(160+2,350+2)
+        incorrect7.size(240-2,70-2)
         incorrect7.mouseOver(oops)
         
         incorrect8 = createDiv("")
-        incorrect8.position(300+2,0+2)
-        incorrect8.size(400-2,100-2)
+        incorrect8.position(0+2,500+2)
+        incorrect8.size(700-2,100-2)
         incorrect8.mouseOver(oops)
         
         incorrect9 = createDiv("")
@@ -213,18 +213,18 @@ function draw() {
         incorrect9.mouseOver(oops)
         
         incorrect10 = createDiv("")
-        incorrect10.position(640+2,100+2)
-        incorrect10.size(70-2,150-2)
+        incorrect10.position(0+2,0+2)
+        incorrect10.size(100-2,600-2)
         incorrect10.mouseOver(oops)
         
         incorrect11 = createDiv("")
-        incorrect11.position(400+2,450+2)
-        incorrect11.size(300-2,150-2)
+        incorrect11.position(300+2,135+2)
+        incorrect11.size(260-2,160-2)
         incorrect11.mouseOver(oops)
         
         incorrect12 = createDiv("")
-        incorrect12.position(400+2,350+2)
-        incorrect12.size(110-2,250-2)
+        incorrect12.position(560+2,135+2)
+        incorrect12.size(40-2,275-2)
         incorrect12.mouseOver(oops)  
       }
     }
