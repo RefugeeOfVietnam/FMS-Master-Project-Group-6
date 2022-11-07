@@ -58,7 +58,8 @@ function draw() {
     r2.text("Try Again",308,470)
     r2.textSize(25)
     
-    let infoText = text("Drag mouse here ")
+    let infoText = text("Drag mouse here to Try Again", 180,410)
+    infoText.textSize(25)
     
     retry = createDiv("")
     retry.position(300,430)
@@ -78,9 +79,10 @@ function draw() {
     
     let r2 = rect(300,430,100,70)
     r2.text("Next Level",308,470)
-    r2.textSize(50)
+    r2.textSize(25)
     
-    let
+    let infoText = text("Drag mouse here for Next Level", 170,410)
+    infoText.textSize(50)
     
     nextLvl = createDiv("")
     nextLvl.position(300,430)
