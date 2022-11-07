@@ -1,1 +1,329 @@
+var level = 1;
+let userState = "start"
+let attemptNum = 0
+
+function setup() {
+  createCanvas(700, 600);
+  let numbers = [1,2,3]
+  let correct;
+  let userState = "play"
+  numDrawing = random(numbers)
+  numDrawing = 3; //fixme
+  
+  back = createButton("Back");
+  back.position(100,450);
+  back.style('color:#0096FF');
+  back.style('font-size','25px')
+  back.mousePressed(homeScreen);
+  
+  start = createButton("Start")
+  start.position(300,430);
+  start.size(100,70)
+  start.style('color:#0096FF');
+  start.style('font-size','25px');
+  start.mousePressed(retrySelected);
+  
+  home = createButton("Home")
+  home.position(600,530)
+  home.size(70,40)
+  home.style("font-size", "20px")
+  
+  
+}
+
+function draw() {
+  
+  background('#0096FF')
+ 
+  if (userState == "start") {
+    rect(350-75,170,150,60, 40);
+    let titleText = text("Tracing",290,212);
+    titleText.textAlign();
+    titleText.textSize(18);
+  
+    rect(135,280,430,100)
+    let instrText = text("Instructions: Move your mouse from the \"Start\"   region through the white rectangles to the \"Finish\" region. Pass each   of the 3 levels in 3 tries to win.", 145, 290, 430, 200)
+    instrText.textAlign();
+    instrText.textSize(35);
+  } 
+  
+  
+  if (userState == "tryAgain") {
+    
+    text("Attempts remaining: " + (3 - attemptNum),20,50)
+    textSize(50)
+    
+    let r1 = rect(150,100,400,150)
+    r1.text("Not Quite",250,188)
+    r1.textSize(20)
+    
+    let r2 = rect(300,430,100,70)
+    r2.text("Try Again",308,470)
+    r2.textSize(25)
+    
+    retry = createDiv("")
+    retry.position(300,430)
+    retry.size(100,70)
+    retry.mouseOver(retrySelected)
+  }
+  
+  if (userState == "nextLevel") {
+    let r1 = rect(150,100,400,150)
+    r1.text("Great Job!",240,188)
+    r1.textSize(18)
+    
+    let r2 = rect(300,430,100,70)
+    r2.text("Next Level",308,470)
+    r2.textSize(50)
+    
+    nextLvl = createDiv("")
+    nextLvl.position(300,430)
+    nextLvl.size(100,70)
+    nextLvl.mouseOver(toNextLevel)
+  }
+  
+  if (userState == "play") {
+    text("Attempts remaining: " + (3 - attemptNum),20,50)
+    if (level == 1) {
+      if(numDrawing == 1) {
+        ellipseMode(RADIUS);
+        fill(255);
+        ellipse(350, 300, 200, 200); // Outer white ellipse
+        ellipseMode(CENTER);
+        fill(100);
+        ellipse(350, 300, 200, 200); // Inner gray ellipse    
+    }
+      if(numDrawing == 2) {
+        rect(100,250,500,100)
+        let startLvl = text("Start", 320, 440)
+        startLvl.textSize(25)
+        let finish = text("Finish", 480, 305)
+        finish.textSize(25)
+    }
+      if(numDrawing == 3) {
+        rect(300,100,100,400)
+        let startLvl = text("Start", 320, 470)
+        textSize(25)
+        let finish = text("Finish", 315, 140)
+      
+        correct = createDiv("")
+        correct.position(300,100)
+        correct.size(100,70)
+        correct.mouseOver(goodJob) 
+      
+        //"+2" and "-2" in code below so variables aren't 
+        //iteratedconstantly when mouse is on the border.
+        
+        incorrect1 = createDiv("")
+        incorrect1.position(0+2,0+2)
+        incorrect1.size(300-2,600-2)
+        incorrect1.mouseOver(oops)
+        
+        incorrect2 = createDiv("")
+        incorrect2.position(0+2,500+2)
+        incorrect2.size(700-2,100-2)
+        incorrect2.mouseOver(oops)
+        
+        incorrect3 = createDiv("")
+        incorrect3.position(0+2,0+2)
+        incorrect3.size(700-2,100-2)
+        incorrect3.mouseOver(oops)
+        
+        incorrect4 = createDiv("")
+        incorrect4.position(400+2,0+2)
+        incorrect4.size(300-2,600-2)
+        incorrect4.mouseOver(oops)
+      }    
+    }  
+  
+    if (level == 2) {
+      if(numDrawing == 3) {
+        rect(300,300,100,200)
+        rect(400,300,200,50)
+        rect(550,100,50,200)
+        rect(300,100,250,50)
+        let startLvl = text("Start", 320, 470)
+        textSize(25)
+        let finish = text("Finish", 315, 135)
+      
+        correct = createDiv("")
+        correct.position(300,100)
+        correct.size(100,50)
+        correct.mouseOver(goodJob) 
+      
+        incorrect1 = createDiv("")
+        incorrect1.position(0+2,0+2)
+        incorrect1.size(300-2,600-2)
+        incorrect1.mouseOver(oops)
+        
+        incorrect2 = createDiv("")
+        incorrect2.position(300+2,0+2)
+        incorrect2.size(400-2,100-2)
+        incorrect2.mouseOver(oops)
+        
+        incorrect3 = createDiv("")
+        incorrect3.position(600+2,100+2)
+        incorrect3.size(100-2,500-2)
+        incorrect3.mouseOver(oops)
+        
+        incorrect4 = createDiv("")
+        incorrect4.position(400+2,350+2)
+        incorrect4.size(200-2,150-2)
+        incorrect4.mouseOver(oops)
+        
+        incorrect5 = createDiv("")
+        incorrect5.position(0+2,500+2)
+        incorrect5.size(700-2,100-2)
+        incorrect5.mouseOver(oops)
+        
+        incorrect6 = createDiv("")
+        incorrect6.position(300+2,150+2)
+        incorrect6.size(250-2,150-2)
+        incorrect6.mouseOver(oops)
+      }
+    }
+  
+    if (level == 3) {
+      if(numDrawing == 3) {
+        rect(100,420,300,80)
+        rect(100,300,60,120)
+        rect(160,300,400,50)
+        rect(510,350,50,100)
+        rect(560,410,80,40)
+        rect(600,100,40,310)
+        rect(300,100,300,35)
+        let startLvl = text("Start", 320, 470)
+        textSize(25)
+        let finish = text("Finish", 315, 126)
+      
+        correct = createDiv("")
+        correct.position(300,100)
+        correct.size(100,35)
+        correct.mouseOver(youWin) 
+      
+        incorrect1 = createDiv("")
+        incorrect1.position(0+2,0+2)
+        incorrect1.size(300-2,300-2)
+        incorrect1.mouseOver(oops)
+        
+        incorrect2 = createDiv("")
+        incorrect2.position(300+2,0+2)
+        incorrect2.size(400-2,100-2)
+        incorrect2.mouseOver(oops)
+        
+        incorrect3 = createDiv("")
+        incorrect3.position(640+2,100+2)
+        incorrect3.size(60-2,500-2)
+        incorrect3.mouseOver(oops)
+        
+        incorrect4 = createDiv("")
+        incorrect4.position(640+2,100+2)
+        incorrect4.size(70-2,150-2)
+        incorrect4.mouseOver(oops)
+        
+        incorrect5 = createDiv("")
+        incorrect5.position(400+2,450+2)
+        incorrect5.size(300-2,150-2)
+        incorrect5.mouseOver(oops)
+        
+        incorrect6 = createDiv("")
+        incorrect6.position(400+2,350+2)
+        incorrect6.size(110-2,250-2)
+        incorrect6.mouseOver(oops)
+        
+        incorrect7 = createDiv("")
+        incorrect7.position(160+2,350+2)
+        incorrect7.size(240-2,70-2)
+        incorrect7.mouseOver(oops)
+        
+        incorrect8 = createDiv("")
+        incorrect8.position(0+2,500+2)
+        incorrect8.size(700-2,100-2)
+        incorrect8.mouseOver(oops)
+        
+        incorrect9 = createDiv("")
+        incorrect9.position(640+2,100+2)
+        incorrect9.size(60-2,500-2)
+        incorrect9.mouseOver(oops)
+        
+        incorrect10 = createDiv("")
+        incorrect10.position(0+2,0+2)
+        incorrect10.size(100-2,600-2)
+        incorrect10.mouseOver(oops)
+        
+        incorrect11 = createDiv("")
+        incorrect11.position(300+2,135+2)
+        incorrect11.size(260-2,160-2)
+        incorrect11.mouseOver(oops)
+        
+        incorrect12 = createDiv("")
+        incorrect12.position(560+2,135+2)
+        incorrect12.size(40-2,275-2)
+        incorrect12.mouseOver(oops)  
+      }
+    }
+  }
+  if (attemptNum >= 3) {
+    gameOver();
+  }
+}
+
+function goodJob() {
+  level = level + 1;
+  attemptNum = 0;
+  userState = "nextLevel";
+  removeElements()
+}
+
+function oops() {
+  userState = "tryAgain"
+  ++attemptNum
+  removeElements()
+}
+
+function retrySelected() {
+  userState = "play"
+  removeElements()
+}
+
+function toNextLevel() {
+  userState = "play"
+  removeElements()
+}
+
+function youWin() {
+  userState = "win"
+  removeElements()
+}
+function restart() {
+  userState = "restart"
+  removeElements()
+  
+  
+}
+
+//FIXME
+function homeScreen() {
+  userState = "home"
+  removeElements()
+}
+
+function gameOver() {
+  clear();
+ background('#0096FF')
+    let userState = "play"
+    let r1 = rect(150,100,340,150)
+    r1.text("Game Over",250,188)
+    r1.textSize(20)
+    
+    let r2 = rect(300,430,100,70)
+    r2.text("Try Again",308,470)
+    r2.textSize(25)
+  
+  home = createButton("Home")
+  home.position(600,530)
+  home.size(70,40)
+  home.style("font-size", "20px")
+  home.mousePressed(setup);
+}
 
