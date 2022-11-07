@@ -47,7 +47,8 @@ function draw() {
   
   if (userState == "tryAgain") {
     
-    text("Attempts remaining: " + (3 - attemptNum),20,50)
+    text("Attempts remaining: " + (3 - attemptNum),20,50)  
+    text("Level: " + level + " / 3",550,51)
     textSize(50)
     
     let r1 = rect(150,100,400,150)
@@ -73,6 +74,9 @@ function draw() {
   }
   
   if (userState == "nextLevel") {
+    text("Next Level: " + level + " / 3",492,51)
+    textSize(50)
+    
     let r1 = rect(150,100,400,150)
     r1.text("Great Job!",240,188)
     r1.textSize(18)
@@ -82,7 +86,7 @@ function draw() {
     r2.textSize(25)
     
     let infoText = text("Drag mouse here for Next Level", 170,410)
-    infoText.textSize(50)
+    infoText.textSize(25)
     
     nextLvl = createDiv("")
     nextLvl.position(300,430)
@@ -92,6 +96,7 @@ function draw() {
   
   if (userState == "play") {
     text("Attempts remaining: " + (3 - attemptNum),20,50)
+    text("Level: " + level + " / 3",550,51)
     if (level == 1) {
       if(numDrawing == 1) {
         ellipseMode(RADIUS);
