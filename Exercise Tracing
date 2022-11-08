@@ -63,10 +63,10 @@ function draw() {
     let infoText = text("Drag mouse here to Try Again", 180,410)
     infoText.textSize(25)
     
-    retry = createDiv("")
+    retry = createButton("")
     retry.position(300,430)
     retry.size(100,70)
-    retry.mouseOver(retrySelected)
+    retry.mousePressed(retrySelected)
     
     home = createButton("Home")
     home.position(600,530)
