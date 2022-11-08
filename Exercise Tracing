@@ -1,4 +1,4 @@
-var level = 1;
+var level = 3;
 let userState = "start"
 let attemptNum = 0
 
@@ -7,32 +7,16 @@ function setup() {
   let numbers = [1,2,3]
   let userState = "play"
   numDrawing = random(numbers)
-  numDrawing = 3; //fixme
-  
-  back = createButton("Back");
-  back.position(100,450);
-  back.style('color:#0096FF');
-  back.style('font-size','25px')
-  back.mousePressed(homeScreen);
-  back.hide()
-  
-  start = createButton("Start")
-  start.position(300,430);
-  start.size(100,70)
-  start.style('color:#0096FF');
-  start.style('font-size','25px');
-  start.mousePressed(retrySelected);
-  
+  numDrawing = 1; //fixme  
+}
+
+function draw() {
+  background('#0096FF')
   home = createButton("Home")
   home.position(600,530)
   home.size(70,40)
   home.style("font-size", "20px")
   home.mousePressed(homeScreen)
-  
-}
-
-function draw() {
-  background('#0096FF')
   
   if (userState == "start") {
     rect(350-75,170,150,60, 40);
@@ -44,6 +28,19 @@ function draw() {
     let instrText = text("Instructions: Move your mouse from the \"Start\" region  through the white rectangles to the \"Finish\" region. Pass each of the 3 levels in 3 tries to win.", 145, 290, 430, 200)
     instrText.textAlign();
     instrText.textSize(35);
+    
+    back = createButton("Back");
+    back.position(100,450);
+    back.style('color:#0096FF');
+    back.style('font-size','25px')
+    back.mousePressed(homeScreen);
+    
+    start = createButton("Start")
+    start.position(300,430);
+    start.size(100,70)
+    start.style('color:#0096FF');
+    start.style('font-size','25px');
+    start.mousePressed(retrySelected);
   } 
   
   if (userState == "tryAgain") {
@@ -98,6 +95,7 @@ function draw() {
   if (userState == "play") {
     text("Attempts remaining: " + (3 - attemptNum),20,50)
     text("Level: " + level + " / 3",550,51)
+    
     if (level == 1) {
       if(numDrawing == 1) {
         rect(200,420,200,80)
@@ -105,12 +103,6 @@ function draw() {
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 215, 140)
-        
-        home = createButton("Home")
-        home.position(600,530)
-        home.size(70,40)
-        home.style("font-size", "20px")
-        home.mousePressed(homeScreen)
       
         correct = createDiv("")
         correct.position(200,100)
@@ -157,12 +149,6 @@ function draw() {
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 140)
-        
-        home = createButton("Home")
-        home.position(600,530)
-        home.size(70,40)
-        home.style("font-size", "20px")
-        home.mousePressed(homeScreen)
       
         correct = createDiv("")
         correct.position(300,100)
@@ -199,13 +185,7 @@ function draw() {
         rect(160,300,240,50)
         let startLvl = text("Start", 320, 470)
         textSize(25)
-        let finish = text("Finish", 315, 135)
-        
-        home = createButton("Home")
-        home.position(600,530)
-        home.size(70,40)
-        home.style("font-size", "20px")
-        home.mousePressed(homeScreen)
+        let finish = text("Finish", 315, 135)       
       
         correct = createDiv("")
         correct.position(308,100)
@@ -305,12 +285,6 @@ function draw() {
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 207, 135)
-        
-        home = createButton("Home")
-        home.position(600,530)
-        home.size(70,40)
-        home.style("font-size", "20px")
-        home.mousePressed(homeScreen)
       
         correct = createDiv("")
         correct.position(300,100)
@@ -388,12 +362,6 @@ function draw() {
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 126)
-        
-        home = createButton("Home")
-        home.position(600,530)
-        home.size(70,40)
-        home.style("font-size", "20px")
-        home.mousePressed(homeScreen)
       
         correct = createDiv("")
         correct.position(300,100)
