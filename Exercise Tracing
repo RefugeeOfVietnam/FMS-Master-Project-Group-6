@@ -15,6 +15,7 @@ function setup() {
   back.style('color:#0096FF');
   back.style('font-size','25px')
   back.mousePressed(homeScreen);
+  back.hide()
   
   start = createButton("Start")
   start.position(300,430);
@@ -27,6 +28,7 @@ function setup() {
   home.position(600,530)
   home.size(70,40)
   home.style("font-size", "20px")
+  home.mousePressed(homeScreen)
   
 }
 
@@ -71,6 +73,13 @@ function draw() {
     home.position(600,530)
     home.size(70,40)
     home.style("font-size", "20px")
+    home.mousePressed(homeScreen)
+  }
+  
+  if (userState == "home") {
+    triangle(24,67,24,90,125,400)
+    text("Yay it works!",300,300)
+    textSize(25)    
   }
   
   if (userState == "nextLevel") {
@@ -92,6 +101,12 @@ function draw() {
     nextLvl.position(300,430)
     nextLvl.size(100,70)
     nextLvl.mouseOver(toNextLevel)
+    
+    home = createButton("Home")
+    home.position(600,530)
+    home.size(70,40)
+    home.style("font-size", "20px")
+    home.mousePressed(homeScreen)
   }
   
   if (userState == "play") {
@@ -118,6 +133,12 @@ function draw() {
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 140)
+        
+        home = createButton("Home")
+        home.position(600,530)
+        home.size(70,40)
+        home.style("font-size", "20px")
+        home.mousePressed(homeScreen)
       
         correct = createDiv("")
         correct.position(300,100)
@@ -146,11 +167,6 @@ function draw() {
         incorrect4.position(400+2,0+2)
         incorrect4.size(300-2,600-2)
         incorrect4.mouseOver(oops)
-        
-        home = createButton("Home")
-        home.position(600,530)
-        home.size(70,40)
-        home.style("font-size", "20px")
       }    
     }  
   
@@ -163,6 +179,12 @@ function draw() {
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 135)
+        
+        home = createButton("Home")
+        home.position(600,530)
+        home.size(70,40)
+        home.style("font-size", "20px")
+        home.mousePressed(homeScreen)
       
         correct = createDiv("")
         correct.position(300,100)
@@ -213,6 +235,12 @@ function draw() {
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 126)
+        
+        home = createButton("Home")
+        home.position(600,530)
+        home.size(70,40)
+        home.style("font-size", "20px")
+        home.mousePressed(homeScreen)
       
         correct = createDiv("")
         correct.position(300,100)
