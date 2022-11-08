@@ -111,7 +111,6 @@ function draw() {
     incorrect11.mouseOver(oops)
     incorrect12.mouseOver(oops)
     
-    
     if (level == 1) {
       correct.mouseOver(goodJob)
       
@@ -170,7 +169,7 @@ function draw() {
         
         incorrect4.position(400+2,0+2)
         incorrect4.size(300-2,600-2)
-        }    
+      }    
     }  
     
     if (level == 2) {
@@ -237,6 +236,7 @@ function draw() {
     }
   
     if (level == 3) {
+      correct.mouseOver(youWin);
       if(numDrawing == 1) {
         rect(300,430,290,70)
         rect(540,100,50,330)
