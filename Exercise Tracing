@@ -41,7 +41,7 @@ function draw() {
     titleText.textSize(18);
   
     rect(135,280,430,100)
-    let instrText = text("Instructions: Move your mouse from the \"Start\" region through the white rectangles to the \"Finish\" region. Pass each of the 3 levels in 3 tries to win.", 145, 290, 430, 200)
+    let instrText = text("Instructions: Move your mouse from the \"Start\" region  through the white rectangles to the \"Finish\" region. Pass each of the 3 levels in 3 tries to win.", 145, 290, 430, 200)
     instrText.textAlign();
     instrText.textSize(35);
   } 
@@ -54,18 +54,12 @@ function draw() {
     
     let r1 = rect(150,100,400,150)
     r1.text("Not Quite",250,188)
-    r1.textSize(20)
+    r1.textSize(25)
     
-    let r2 = rect(300,430,100,70)
-    r2.text("Try Again",308,470)
-    r2.textSize(25)
-    
-    let infoText = text("Drag mouse here to Try Again", 180,410)
-    infoText.textSize(25)
-    
-    retry = createButton("")
+    retry = createButton("Try Again")
     retry.position(300,430)
     retry.size(100,70)
+    retry.style("font-size", "22px")
     retry.mousePressed(retrySelected)
     
     home = createButton("Home")
@@ -87,19 +81,13 @@ function draw() {
     
     let r1 = rect(150,100,400,150)
     r1.text("Great Job!",240,188)
-    r1.textSize(18)
+    r1.textSize(25)
     
-    let r2 = rect(300,430,100,70)
-    r2.text("Next Level",308,470)
-    r2.textSize(25)
-    
-    let infoText = text("Drag mouse here for Next Level", 170,410)
-    infoText.textSize(25)
-    
-    nextLvl = createDiv("")
+    nextLvl = createButton("Next Level")
     nextLvl.position(300,430)
     nextLvl.size(100,70)
-    nextLvl.mouseOver(toNextLevel)
+    nextLvl.style("font-size", "20px")
+    nextLvl.mousePressed(toNextLevel)
     
     home = createButton("Home")
     home.position(600,530)
@@ -145,7 +133,7 @@ function draw() {
         correct.mouseOver(goodJob) 
       
         //"+2" and "-2" in code below so variables aren't 
-        //iteratedconstantly when mouse is on the border.
+        //iterated constantly when mouse is on the border.
         
         incorrect1 = createDiv("")
         incorrect1.position(0+2,0+2)
