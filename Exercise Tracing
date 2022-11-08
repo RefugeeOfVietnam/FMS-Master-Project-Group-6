@@ -5,7 +5,6 @@ let attemptNum = 0
 function setup() {
   createCanvas(700, 600);
   let numbers = [1,2,3]
-  let correct;
   let userState = "play"
   numDrawing = random(numbers)
   numDrawing = 3; //fixme
