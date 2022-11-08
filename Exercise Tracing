@@ -1,5 +1,5 @@
 var level = 1;
-let userState = "start"
+let userState = "play"
 let attemptNum = 0
 
 function setup() {
@@ -7,7 +7,7 @@ function setup() {
   let numbers = [1,2,3]
   let userState = "play"
   numDrawing = random(numbers)
-  numDrawing = 3; //fixme
+  numDrawing = 1; //fixme
   
   back = createButton("Back");
   back.position(100,450);
@@ -47,7 +47,6 @@ function draw() {
   } 
   
   if (userState == "tryAgain") {
-    
     text("Attempts remaining: " + (3 - attemptNum),20,50)  
     text("Level: " + level + " / 3",550,51)
     textSize(50)
@@ -86,7 +85,7 @@ function draw() {
     nextLvl = createButton("Next Level")
     nextLvl.position(300,430)
     nextLvl.size(100,70)
-    nextLvl.style("font-size", "20px")
+    nextLvl.style("font-size", "22px")
     nextLvl.mousePressed(toNextLevel)
     
     home = createButton("Home")
@@ -101,20 +100,53 @@ function draw() {
     text("Level: " + level + " / 3",550,51)
     if (level == 1) {
       if(numDrawing == 1) {
-        ellipseMode(RADIUS);
-        fill(255);
-        ellipse(350, 300, 200, 200); // Outer white ellipse
-        ellipseMode(CENTER);
-        fill(100);
-        ellipse(350, 300, 200, 200); // Inner gray ellipse    
-    }
+        rect(200,420,200,80)
+        rect(200,100,100,320)
+        let startLvl = text("Start", 320, 470)
+        textSize(25)
+        let finish = text("Finish", 215, 140)
+        
+        home = createButton("Home")
+        home.position(600,530)
+        home.size(70,40)
+        home.style("font-size", "20px")
+        home.mousePressed(homeScreen)
+      
+        correct = createDiv("")
+        correct.position(200,100)
+        correct.size(100,70)
+        correct.mouseOver(goodJob) 
+      
+        //"+2" and "-2" in code below so variables aren't 
+        //iterated constantly when mouse is on the border.
+        
+        incorrect1 = createDiv("")
+        incorrect1.position(0+2,0+2)
+        incorrect1.size(200-2,600-2)
+        incorrect1.mouseOver(oops)
+        
+        incorrect2 = createDiv("")
+        incorrect2.position(0+2,500+2)
+        incorrect2.size(700-2,100-2)
+        incorrect2.mouseOver(oops)
+        
+        incorrect3 = createDiv("")
+        incorrect3.position(0+2,0+2)
+        incorrect3.size(700-2,100-2)
+        incorrect3.mouseOver(oops)
+        
+        incorrect4 = createDiv("")
+        incorrect4.position(400+2,0+2)
+        incorrect4.size(300-2,600-2)
+        incorrect4.mouseOver(oops)
+      }
       if(numDrawing == 2) {
         rect(100,250,500,100)
         let startLvl = text("Start", 320, 440)
         startLvl.textSize(25)
         let finish = text("Finish", 480, 305)
         finish.textSize(25)
-    }
+      }
       if(numDrawing == 3) {
         rect(300,100,100,400)
         let startLvl = text("Start", 320, 470)
@@ -131,9 +163,6 @@ function draw() {
         correct.position(300,100)
         correct.size(100,70)
         correct.mouseOver(goodJob) 
-      
-        //"+2" and "-2" in code below so variables aren't 
-        //iterated constantly when mouse is on the border.
         
         incorrect1 = createDiv("")
         incorrect1.position(0+2,0+2)
@@ -156,7 +185,7 @@ function draw() {
         incorrect4.mouseOver(oops)
       }    
     }  
-  
+    
     if (level == 2) {
       if(numDrawing == 3) {
         rect(300,300,100,200)
