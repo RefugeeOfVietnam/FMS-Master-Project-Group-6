@@ -1,5 +1,5 @@
-var level = 2;
-let userState = "play"
+var level = 1;
+let userState = "start"
 let attemptNum = 0
 
 function setup() {
@@ -7,7 +7,7 @@ function setup() {
   let numbers = [1,2,3]
   let userState = "play"
   numDrawing = random(numbers)
-  numDrawing = 1; //fixme
+  numDrawing = 3; //fixme
   
   back = createButton("Back");
   back.position(100,450);
@@ -195,8 +195,8 @@ function draw() {
       if(numDrawing == 1) {
         rect(100,430,300,70)
         rect(100,300,60,130)
-        rect(308,100,80,200)
-        rect(160,300,228,50)
+        rect(300,100,100,200)
+        rect(160,300,240,50)
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 135)
@@ -209,7 +209,7 @@ function draw() {
       
         correct = createDiv("")
         correct.position(308,100)
-        correct.size(80,70)
+        correct.size(80,80)
         correct.mouseOver(goodJob) 
       
         incorrect1 = createDiv("")
@@ -218,7 +218,7 @@ function draw() {
         incorrect1.mouseOver(oops)
         
         incorrect2 = createDiv("")
-        incorrect2.position(300+2,0+2)
+        incorrect2.position(400+2,0+2)
         incorrect2.size(400-2,600-2)
         incorrect2.mouseOver(oops)
         
@@ -238,8 +238,8 @@ function draw() {
         incorrect5.mouseOver(oops)
         
         incorrect6 = createDiv("")
-        incorrect6.position(300+2,150+2)
-        incorrect6.size(250-2,150-2)
+        incorrect6.position(0+2,500+2)
+        incorrect6.size(700-2,100-2)
         incorrect6.mouseOver(oops)
       }
       if(numDrawing == 3) {
