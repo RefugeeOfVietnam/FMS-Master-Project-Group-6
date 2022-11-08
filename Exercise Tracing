@@ -295,6 +295,88 @@ function draw() {
     }
   
     if (level == 3) {
+      if(numDrawing == 1) {
+        rect(300,430,290,70)
+        rect(540,100,50,330)
+        rect(440,100,100,45)
+        rect(440,145,40,205)
+        rect(200,315,240,35)
+        rect(200,100,80,215)
+        let startLvl = text("Start", 320, 470)
+        textSize(25)
+        let finish = text("Finish", 207, 135)
+        
+        home = createButton("Home")
+        home.position(600,530)
+        home.size(70,40)
+        home.style("font-size", "20px")
+        home.mousePressed(homeScreen)
+      
+        correct = createDiv("")
+        correct.position(300,100)
+        correct.size(100,35)
+        correct.mouseOver(youWin) 
+      
+        incorrect1 = createDiv("")
+        incorrect1.position(0+2,0+2)
+        incorrect1.size(300-2,300-2)
+        incorrect1.mouseOver(oops)
+        
+        incorrect2 = createDiv("")
+        incorrect2.position(300+2,0+2)
+        incorrect2.size(400-2,100-2)
+        incorrect2.mouseOver(oops)
+        
+        incorrect3 = createDiv("")
+        incorrect3.position(640+2,100+2)
+        incorrect3.size(60-2,500-2)
+        incorrect3.mouseOver(oops)
+        
+        incorrect4 = createDiv("")
+        incorrect4.position(640+2,100+2)
+        incorrect4.size(70-2,150-2)
+        incorrect4.mouseOver(oops)
+        
+        incorrect5 = createDiv("")
+        incorrect5.position(400+2,450+2)
+        incorrect5.size(300-2,150-2)
+        incorrect5.mouseOver(oops)
+        
+        incorrect6 = createDiv("")
+        incorrect6.position(400+2,350+2)
+        incorrect6.size(110-2,250-2)
+        incorrect6.mouseOver(oops)
+        
+        incorrect7 = createDiv("")
+        incorrect7.position(160+2,350+2)
+        incorrect7.size(240-2,70-2)
+        incorrect7.mouseOver(oops)
+        
+        incorrect8 = createDiv("")
+        incorrect8.position(0+2,500+2)
+        incorrect8.size(700-2,100-2)
+        incorrect8.mouseOver(oops)
+        
+        incorrect9 = createDiv("")
+        incorrect9.position(640+2,100+2)
+        incorrect9.size(60-2,500-2)
+        incorrect9.mouseOver(oops)
+        
+        incorrect10 = createDiv("")
+        incorrect10.position(0+2,0+2)
+        incorrect10.size(100-2,600-2)
+        incorrect10.mouseOver(oops)
+        
+        incorrect11 = createDiv("")
+        incorrect11.position(300+2,135+2)
+        incorrect11.size(260-2,160-2)
+        incorrect11.mouseOver(oops)
+        
+        incorrect12 = createDiv("")
+        incorrect12.position(560+2,135+2)
+        incorrect12.size(40-2,275-2)
+        incorrect12.mouseOver(oops)  
+      }
       if(numDrawing == 3) {
         rect(100,420,300,80)
         rect(100,300,60,120)
