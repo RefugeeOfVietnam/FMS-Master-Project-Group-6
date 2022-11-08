@@ -1,11 +1,11 @@
-var level = 3;
-let userState = "start"
+var level = 1;
+let userState = "play"
 let attemptNum = 0
 
 function setup() {
   createCanvas(700, 600);
   let numbers = [1,2,3]
-  let userState = "play"
+  let userState = "start"
   numDrawing = random(numbers)
   numDrawing = 1; //fixme  
 }
@@ -40,7 +40,7 @@ function draw() {
     start.size(100,70)
     start.style('color:#0096FF');
     start.style('font-size','25px');
-    start.mousePressed(retrySelected);
+    start.mousePressed(next);
   } 
   
   if (userState == "tryAgain") {
@@ -56,7 +56,7 @@ function draw() {
     retry.position(300,430)
     retry.size(100,70)
     retry.style("font-size", "22px")
-    retry.mousePressed(retrySelected)
+    retry.mousePressed(next)
   }
   
   if (userState == "home") {
@@ -77,33 +77,59 @@ function draw() {
     nextLvl.position(300,430)
     nextLvl.size(100,70)
     nextLvl.style("font-size", "22px")
-    nextLvl.mousePressed(toNextLevel)
+    nextLvl.mousePressed(next)
   }
   
   if (userState == "play") {
     text("Attempts remaining: " + (3 - attemptNum),20,50)
     text("Level: " + level + " / 3",550,51)
     
+    correct = createDiv("")
+    incorrect1 = createDiv("")
+    incorrect2 = createDiv("")
+    incorrect3 = createDiv("")
+    incorrect4 = createDiv("")
+    incorrect5 = createDiv("")
+    incorrect6 = createDiv("")
+    incorrect7 = createDiv("")
+    incorrect8 = createDiv("")
+    incorrect9 = createDiv("")
+    incorrect10 = createDiv("")
+    incorrect11 = createDiv("")
+    incorrect12 = createDiv("")
+    
+    incorrect1.mouseOver(oops)
+    incorrect2.mouseOver(oops)
+    incorrect3.mouseOver(oops)
+    incorrect4.mouseOver(oops)
+    incorrect5.mouseOver(oops)
+    incorrect6.mouseOver(oops)
+    incorrect7.mouseOver(oops)
+    incorrect8.mouseOver(oops)
+    incorrect9.mouseOver(oops)
+    incorrect10.mouseOver(oops)
+    incorrect11.mouseOver(oops)
+    incorrect12.mouseOver(oops)
+    
+    
     if (level == 1) {
+      correct.mouseOver(goodJob)
+      
       if(numDrawing == 1) {
         rect(200,420,200,80)
         rect(200,100,100,320)
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 215, 140)
-      
-        correct = createDiv("")
+  
         correct.position(200,100)
-        correct.size(100,70)
-        correct.mouseOver(goodJob) 
+        correct.size(100,70) 
       
         //"+2" and "-2" in code below so variables aren't 
         //iterated constantly when mouse is on the border.
         
-        incorrect1 = createDiv("")
         incorrect1.position(0+2,0+2)
         incorrect1.size(200-2,600-2)
-        incorrect1.mouseOver(oops)
         
         incorrect2 = createDiv("")
         incorrect2.position(0+2,500+2)
@@ -269,8 +295,8 @@ function draw() {
         let finish = text("Finish", 207, 135)
       
         correct = createDiv("")
-        correct.position(300,100)
-        correct.size(100,35)
+        correct.position(200,100)
+        correct.size(80,70)
         correct.mouseOver(youWin) 
       
         incorrect1 = createDiv("")
@@ -430,12 +456,7 @@ function oops() {
   removeElements()
 }
 
-function retrySelected() {
-  userState = "play"
-  removeElements()
-}
-
-function toNextLevel() {
+function next() {
   userState = "play"
   removeElements()
 }
@@ -445,7 +466,6 @@ function youWin() {
   removeElements()
 }
 
-//FIXME
 function homeScreen() {
   userState = "home"
   removeElements()
