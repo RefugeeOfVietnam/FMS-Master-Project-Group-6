@@ -1,5 +1,5 @@
 var level = 1;
-let userState = "play"
+let userState = "start"
 let attemptNum = 0
 
 function setup() {
@@ -7,7 +7,7 @@ function setup() {
   let numbers = [1,2,3]
   let userState = "start"
   numDrawing = random(numbers)
-  numDrawing = 1; //fixme  
+  numDrawing = 3; //fixme  
 }
 
 function draw() {
@@ -173,6 +173,7 @@ function draw() {
     }  
     
     if (level == 2) {
+      correct.mouseOver(goodJob)
       if(numDrawing == 1) {
         rect(100,430,300,70)
         rect(100,300,60,130)
