@@ -57,12 +57,6 @@ function draw() {
     retry.size(100,70)
     retry.style("font-size", "22px")
     retry.mousePressed(retrySelected)
-    
-    home = createButton("Home")
-    home.position(600,530)
-    home.size(70,40)
-    home.style("font-size", "20px")
-    home.mousePressed(homeScreen)
   }
   
   if (userState == "home") {
@@ -84,12 +78,6 @@ function draw() {
     nextLvl.size(100,70)
     nextLvl.style("font-size", "22px")
     nextLvl.mousePressed(toNextLevel)
-    
-    home = createButton("Home")
-    home.position(600,530)
-    home.size(70,40)
-    home.style("font-size", "20px")
-    home.mousePressed(homeScreen)
   }
   
   if (userState == "play") {
@@ -230,12 +218,6 @@ function draw() {
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 135)
-        
-        home = createButton("Home")
-        home.position(600,530)
-        home.size(70,40)
-        home.style("font-size", "20px")
-        home.mousePressed(homeScreen)
       
         correct = createDiv("")
         correct.position(300,100)
