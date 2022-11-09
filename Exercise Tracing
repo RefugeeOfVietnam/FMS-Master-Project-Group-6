@@ -1,12 +1,12 @@
 var level = 1;
-let userState = "start"
+let userState = "play"
 let attemptNum = 0
 let numbers = [1,3] //FIXME
 
 function setup() {
   createCanvas(700, 600);
   numDrawing = random(numbers) //Add to beginning of each level once all stages created
-  //numDrawing = 1; //Here for simplicity in creating the stages 
+  numDrawing = 2; //Here for simplicity in creating the stages 
 }
 
 function draw() {
@@ -139,11 +139,30 @@ function draw() {
         incorrect5.size(300,420)
       }
       if(numDrawing == 2) {
-        rect(100,250,500,100)
-        let startLvl = text("Start", 320, 440)
+        rect(300,420,200,80)
+        rect(400,100,100,320)
+        let startLvl = text("Start", 320, 470)
         startLvl.textSize(25)
-        let finish = text("Finish", 480, 305)
+        let finish = text("Finish", 415, 140)
         finish.textSize(25)
+        
+        correct.position(400,100)
+        correct.size(100,70) 
+            
+        incorrect1.position(0,0)
+        incorrect1.size(300,600)
+        
+        incorrect2.position(0,0)
+        incorrect2.size(700,100)
+        
+        incorrect3.position(0,0)
+        incorrect3.size(400,420)
+        
+        incorrect4.position(500,0)
+        incorrect4.size(200,600)
+        
+        incorrect5.position(0,500)
+        incorrect5.size(700,100)
       }
       if(numDrawing == 3) {
         rect(300,100,100,400)
@@ -171,6 +190,36 @@ function draw() {
     if (level == 2) {
       correct.mouseOver(goodJob)
       if(numDrawing == 1) {
+        rect(100,430,300,70)
+        rect(100,300,60,130)
+        rect(300,100,100,200)
+        rect(160,300,240,50)
+        let startLvl = text("Start", 320, 470)
+        textSize(25)
+        let finish = text("Finish", 315, 135)       
+      
+        correct.position(308,100)
+        correct.size(80,80)
+        
+        incorrect1.position(0,0)
+        incorrect1.size(300,300)
+        
+        incorrect2.position(400,0)
+        incorrect2.size(400,600)
+        
+        incorrect3.position(160,350)
+        incorrect3.size(540,80)
+        
+        incorrect4.position(0,0)
+        incorrect4.size(700,100)
+        
+        incorrect5.position(0,0)
+        incorrect5.size(100,600)
+        
+        incorrect6.position(0,500)
+        incorrect6.size(700,100)
+      }
+      if(numDrawing == 2) {
         rect(100,430,300,70)
         rect(100,300,60,130)
         rect(300,100,100,200)
@@ -235,6 +284,44 @@ function draw() {
     if (level == 3) {
       correct.mouseOver(youWin);
       if(numDrawing == 1) {
+        rect(300,430,290,70)
+        rect(540,100,50,330)
+        rect(440,100,100,45)
+        rect(440,145,40,205)
+        rect(200,315,240,35)
+        rect(200,100,80,215)
+        let startLvl = text("Start", 320, 470)
+        textSize(25)
+        let finish = text("Finish", 207, 135)
+      
+        correct.position(200,100)
+        correct.size(80,70)
+        
+        incorrect1.position(0,0)
+        incorrect1.size(200,600)
+        
+        incorrect2.position(280,0)
+        incorrect2.size(160,315)
+        
+        incorrect3.position(590,0)
+        incorrect3.size(110,600)
+        
+        incorrect4.position(0,0)
+        incorrect4.size(700,100)
+        
+        incorrect5.position(0,500)
+        incorrect5.size(700,100)
+        
+        incorrect6.position(200,350)
+        incorrect6.size(100,250)
+        
+        incorrect7.position(0,350)
+        incorrect7.size(540,80)
+        
+        incorrect8.position(480,145)
+        incorrect8.size(60,285)
+      }
+      if(numDrawing == 2) {
         rect(300,430,290,70)
         rect(540,100,50,330)
         rect(440,100,100,45)
