@@ -1,4 +1,4 @@
-var level = 1;
+var level = 2;
 let userState = "play"
 let attemptNum = 0
 let numbers = [1,3] //FIXME
@@ -220,16 +220,16 @@ function draw() {
         incorrect6.size(700,100)
       }
       if(numDrawing == 2) {
-        rect(100,430,300,70)
-        rect(100,300,60,130)
-        rect(300,100,100,200)
-        rect(160,300,240,50)
+        rect(300,430,300,70)
+        rect(540,200,60,230)
+        rect(300,200,240,50)
+        rect(300,100,100,100)
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 135)       
       
         correct.position(308,100)
-        correct.size(80,80)
+        correct.size(80,70)
         
         incorrect1.position(0,0)
         incorrect1.size(300,300)
