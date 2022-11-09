@@ -1,12 +1,10 @@
-var level = 3;
-let userState = "play"
+var level = 1;
+let userState = "start"
 let attemptNum = 0
-let numbers = [1,3] //FIXME
+let numbers = [1,2,3]
 
 function setup() {
   createCanvas(700, 600);
-  numDrawing = random(numbers) //Add to beginning of each level once all stages created
-  numDrawing = 2; //Here for simplicity in creating the stages 
 }
 
 function draw() {
@@ -40,6 +38,8 @@ function draw() {
     start.style('color:#0096FF');
     start.style('font-size','25px');
     start.mousePressed(next);
+    
+    numDrawing = random(numbers)
   } 
   
   if (userState == "tryAgain") {
@@ -334,7 +334,7 @@ function draw() {
         let finish = text("Finish", 207, 340)
       
         correct.position(200,315)
-        correct.size(70,35)
+        correct.size(80,35)
         
         incorrect1.position(0,0)
         incorrect1.size(200,600)
@@ -348,17 +348,20 @@ function draw() {
         incorrect4.position(600,0)
         incorrect4.size(100,600)
         
-        incorrect5.position(0,500)
-        incorrect5.size(700,100)
+        incorrect5.position(0,0)
+        incorrect5.size(450,315)
         
-        incorrect6.position(200,350)
-        incorrect6.size(100,250)
+        incorrect6.position(0,340)
+        incorrect6.size(310,260)
         
         incorrect7.position(0,350)
-        incorrect7.size(540,80)
+        incorrect7.size(555,40)
         
-        incorrect8.position(480,145)
-        incorrect8.size(60,285)
+        incorrect8.position(490,185)
+        incorrect8.size(65,165)
+        
+        incorrect9.position(400,430)
+        incorrect9.size(300,170)
       }
       if(numDrawing == 3) {
         rect(100,420,300,80)
@@ -422,6 +425,7 @@ function goodJob() {
   level = level + 1;
   attemptNum = 0;
   userState = "nextLevel";
+  numDrawing = random(numbers)
   removeElements()
 }
 
