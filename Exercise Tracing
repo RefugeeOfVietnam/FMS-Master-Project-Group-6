@@ -1,5 +1,5 @@
 var level = 1;
-let userState = "start"
+let userState = "home"
 let attemptNum = 0
 let numbers = [1,2,3]
 
@@ -7,41 +7,7 @@ function setup() {
   createCanvas(700, 600);
 }
 
-/*function setup() {
-  createCanvas(700, 600);
-  gameSelection = createButton("Game Selection");
-  gameSelection.position(217,340);
-  gameSelection.style('color:#0096FF');
-  gameSelection.style('font-size','35px')
-  gameSelection.mousePressed(gameSelect);
-}
-
-//Start Screen
-function draw() {
-  
-  background('#0096FF')
-  
-  let FMS;
-  rect(200,160,300,80,40)
-  FMS = text("Project FMS",213,217)
-  textSize(50)
-  
-  triangle1 = triangle(45*2,30*2,80*2,70*2,25*2,80*2);
-  rect1 = rect(600-90,30*2,160,70);
-  ellipse1 = ellipse(120,460,120,90)
-  arc1 = arc(700-120,510,80,200,400,88,PIE)
-  
-}
-
-//Game Selection Screen
-function gameSelect() {
-  
-}
-*/
-
-/*function setup () {
-  cnv = createCanvas(700, 600);
-  
+/*
   back = createButton("Back");
   back.position(600,540);
   back.style('color:#0096FF');
@@ -115,6 +81,24 @@ function draw() {
   home.style("font-size", "20px")
   home.mousePressed(homeScreen)
   
+  if (userState == "home") {
+    gameSelection = createButton("Game Selection");
+    gameSelection.position(217,340);
+    gameSelection.style('color:#0096FF');
+    gameSelection.style('font-size','35px')
+    gameSelection.mousePressed(gameSelect)
+    
+    let FMS;
+    rect(200,170,300,80,40)
+    FMS = text("Project FMS",213,227)
+    textSize(50)
+    
+    triangle1 = triangle(45*2,30*2,80*2,70*2,25*2,80*2);
+    rect1 = rect(600-90,30*2,160,70);
+    ellipse1 = ellipse(120,460,120,90)
+    arc1 = arc(700-120,510,80,200,400,88,PIE)
+  }
+  
   if (userState == "start") {
     rect(350-75,170,150,60, 40);
     let titleText = text("Tracing",290,212);
@@ -156,12 +140,6 @@ function draw() {
     retry.size(100,70)
     retry.style("font-size", "22px")
     retry.mousePressed(next)
-  }
-  
-  if (userState == "home") {
-    triangle(24,67,24,90,125,400)
-    text("Yay it works!",300,300)
-    textSize(25)    
   }
   
   if (userState == "nextLevel") {
@@ -552,5 +530,10 @@ function homeScreen() {
 
 function gameOver() {
   userState = "lose"
+  removeElements()
+}
+
+function gameSelect() {
+  userState = "start"
   removeElements()
 }
