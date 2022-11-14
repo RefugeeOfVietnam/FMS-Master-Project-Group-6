@@ -69,11 +69,11 @@ function draw() {
     instrText.textAlign();
     instrText.textSize(35);
     
-    back = createButton("Back");
-    back.position(100,450);
-    back.style('color:#0096FF');
-    back.style('font-size','25px')
-    back.mousePressed(homeScreen);
+    back = createButton("Back")
+    back.position(30,530)
+    back.size(70,40)
+    back.style("font-size", "20px")
+    back.mousePressed(gameSelect)
     
     start = createButton("Start")
     start.position(300,430);
