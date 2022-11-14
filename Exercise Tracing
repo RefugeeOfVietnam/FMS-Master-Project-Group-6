@@ -58,7 +58,7 @@ function draw() {
     textSize(50)
   }
   
-  if (userState == "youLost") {
+  if (userState == "lose") {
     rect(150,100,400,150)
     text("You Lost",250,190)
     textSize(50)
@@ -69,7 +69,19 @@ function draw() {
     startOver.style('color:#0096FF');
     startOver.style('font-size','25px');
     startOver.mousePressed(selectTracing);
-    }
+  }
+  
+  if (userState == "win") {
+    rect(150,100,400,150)
+    text("You Win!!!",250,190)
+    textSize(50)
+    
+    home.position(300,430);
+    home.size(100,70)
+    home.style('color:#0096FF');
+    home.style('font-size','25px');
+    home.mousePressed(homeScreen);
+  }
   
   if (userState == "startTracing") {
     rect(350-75,170,150,60, 40);
@@ -492,6 +504,8 @@ function next() {
 
 function youWin() {
   userState = "win"
+  attemptNum = 0;
+  level = 1;
   removeElements()
 }
 
@@ -501,7 +515,7 @@ function homeScreen() {
 }
 
 function gameOver() {
-  userState = "youLost"
+  userState = "lose"
   attemptNum = 0;
   level = 1;
   removeElements()
