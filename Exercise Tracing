@@ -58,6 +58,19 @@ function draw() {
     textSize(50)
   }
   
+  if (userState == "youLost") {
+    rect(150,100,400,150)
+    text("You Lost",250,190)
+    textSize(50)
+    
+    startOver = createButton("Start Over")
+    startOver.position(300,430);
+    startOver.size(100,70)
+    startOver.style('color:#0096FF');
+    startOver.style('font-size','25px');
+    startOver.mousePressed(selectTracing);
+    }
+  
   if (userState == "startTracing") {
     rect(350-75,170,150,60, 40);
     let titleText = text("Tracing",290,212);
@@ -488,7 +501,9 @@ function homeScreen() {
 }
 
 function gameOver() {
-  userState = "lose"
+  userState = "youLost"
+  attemptNum = 0;
+  level = 1;
   removeElements()
 }
 
