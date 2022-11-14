@@ -7,6 +7,106 @@ function setup() {
   createCanvas(700, 600);
 }
 
+/*function setup() {
+  createCanvas(700, 600);
+  gameSelection = createButton("Game Selection");
+  gameSelection.position(217,340);
+  gameSelection.style('color:#0096FF');
+  gameSelection.style('font-size','35px')
+  gameSelection.mousePressed(gameSelect);
+}
+
+//Start Screen
+function draw() {
+  
+  background('#0096FF')
+  
+  let FMS;
+  rect(200,160,300,80,40)
+  FMS = text("Project FMS",213,217)
+  textSize(50)
+  
+  triangle1 = triangle(45*2,30*2,80*2,70*2,25*2,80*2);
+  rect1 = rect(600-90,30*2,160,70);
+  ellipse1 = ellipse(120,460,120,90)
+  arc1 = arc(700-120,510,80,200,400,88,PIE)
+  
+}
+
+//Game Selection Screen
+function gameSelect() {
+  
+}
+*/
+
+/*function setup () {
+  cnv = createCanvas(700, 600);
+  
+  back = createButton("Back");
+  back.position(600,540);
+  back.style('color:#0096FF');
+  back.style('font-size','25px')
+  back.mousePressed(homeScreen);
+
+  memory = createButton("Memory");
+  memory.position(80,350);
+  memory.style('color:#0096FF');
+  memory.style('font-size','35px')
+  memory.mousePressed(memoryGame);
+  
+  matching = createButton("Matching");
+  matching.position(275,350);
+  matching.style('color:#0096FF');
+  matching.style('font-size','35px')
+  matching.mousePressed(matchingGame);
+  
+  tracing = createButton("Tracing");
+  tracing.position(485,350);
+  tracing.style('color:#0096FF');
+  tracing.style('font-size','35px')
+  tracing.mousePressed(tracingGame);
+  
+  let ans1 = "hi"
+  let ans2 = "hi"
+  if (match(ans1,ans2) == null) {
+    memory = createButton("Memory"); 
+    memory.size(120);
+    memory.position(141,130);
+    memory.mousePressed(memoryGame);
+  }
+}      
+
+function draw() {
+  background('#0096FF');
+  
+  let FMS;
+  rect(200,170,300,80,40)
+  FMS = text("Project FMS",213,227)
+  textSize(50)
+}
+
+function memoryGame() {
+  
+}
+
+function tracingGame() {
+  
+}
+
+function matchingGame() {
+  
+}
+
+function homeScreen() {
+  cnv.remove()
+  function setup() {
+    createCanvas(800,700)
+  }
+  function draw() {
+  background('#0096FF');
+  }
+}
+*/
 function draw() {
   background('#0096FF')
   home = createButton("Home")
