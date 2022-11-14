@@ -7,72 +7,6 @@ function setup() {
   createCanvas(700, 600);
 }
 
-/*
-  back = createButton("Back");
-  back.position(600,540);
-  back.style('color:#0096FF');
-  back.style('font-size','25px')
-  back.mousePressed(homeScreen);
-
-  memory = createButton("Memory");
-  memory.position(80,350);
-  memory.style('color:#0096FF');
-  memory.style('font-size','35px')
-  memory.mousePressed(memoryGame);
-  
-  matching = createButton("Matching");
-  matching.position(275,350);
-  matching.style('color:#0096FF');
-  matching.style('font-size','35px')
-  matching.mousePressed(matchingGame);
-  
-  tracing = createButton("Tracing");
-  tracing.position(485,350);
-  tracing.style('color:#0096FF');
-  tracing.style('font-size','35px')
-  tracing.mousePressed(tracingGame);
-  
-  let ans1 = "hi"
-  let ans2 = "hi"
-  if (match(ans1,ans2) == null) {
-    memory = createButton("Memory"); 
-    memory.size(120);
-    memory.position(141,130);
-    memory.mousePressed(memoryGame);
-  }
-}      
-
-function draw() {
-  background('#0096FF');
-  
-  let FMS;
-  rect(200,170,300,80,40)
-  FMS = text("Project FMS",213,227)
-  textSize(50)
-}
-
-function memoryGame() {
-  
-}
-
-function tracingGame() {
-  
-}
-
-function matchingGame() {
-  
-}
-
-function homeScreen() {
-  cnv.remove()
-  function setup() {
-    createCanvas(800,700)
-  }
-  function draw() {
-  background('#0096FF');
-  }
-}
-*/
 function draw() {
   background('#0096FF')
   home = createButton("Home")
@@ -99,7 +33,32 @@ function draw() {
     arc1 = arc(700-120,510,80,200,400,88,PIE)
   }
   
-  if (userState == "start") {
+  if (userState == "gameSelection") {
+    memory = createButton("Memory");
+    memory.position(80,350);
+    memory.style('color:#0096FF');
+    memory.style('font-size','35px')
+    memory.mousePressed(selectMemory);
+  
+    matching = createButton("Matching");
+    matching.position(275,350);
+    matching.style('color:#0096FF');
+    matching.style('font-size','35px')
+    matching.mousePressed(selectMatching);
+  
+    tracing = createButton("Tracing");
+    tracing.position(485,350);
+    tracing.style('color:#0096FF');
+    tracing.style('font-size','35px')
+    tracing.mousePressed(selectTracing);
+    
+    let FMS;
+    rect(200,170,300,80,40)
+    FMS = text("Project FMS",213,227)
+    textSize(50)
+  }
+  
+  if (userState == "startTracing") {
     rect(350-75,170,150,60, 40);
     let titleText = text("Tracing",290,212);
     titleText.textAlign();
@@ -534,6 +493,21 @@ function gameOver() {
 }
 
 function gameSelect() {
-  userState = "start"
+  userState = "gameSelection"
+  removeElements()
+}
+
+function selectTracing() {
+  userState = "startTracing"
+  removeElements()
+}
+
+function selectMemory() {
+  userState = "startMemory"
+  removeElements()
+}
+
+function selectMatching() {
+  userState = "startMatching"
   removeElements()
 }
