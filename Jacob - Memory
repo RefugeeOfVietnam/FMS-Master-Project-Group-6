@@ -166,7 +166,7 @@ function draw(){
   }
 }
   
-function correctPage(){
+function correct(){
   userState = "memoryNext";
   level++;
   removeElements();
