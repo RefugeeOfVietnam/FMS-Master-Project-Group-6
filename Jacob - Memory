@@ -82,21 +82,25 @@ function draw(){
       answer = createButton('Purple Pentagons');
       answer.position(50, 100);
       answer.size(300,200);
+      answer.style("font-size", "25px")
       answer.mousePressed(correctPage);
         
       wrongAnswer1 = createButton("Red Triangles");
       wrongAnswer1.position(350, 100);
       wrongAnswer1.size(300,200);
+      wrongAnswer1.style("font-size", "25px")
       wrongAnswer1.mousePressed(wrongPage);
         
       wrongAnswer2 = createButton("Yellow Rectangles");
       wrongAnswer2.position(350, 300);
       wrongAnswer2.size(300,200);
+      wrongAnswer2.style("font-size", "25px")
       wrongAnswer2.mousePressed(wrongPage);
         
       wrongAnswer3 = createButton("Green Circles");
       wrongAnswer3.position(50, 300);
       wrongAnswer3.size(300,200);
+      wrongAnswer3.style("font-size", "25px")
       wrongAnswer3.mousePressed(wrongPage);
     }
     if (level == 2) {
