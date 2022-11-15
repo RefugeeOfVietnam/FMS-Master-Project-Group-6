@@ -1,6 +1,8 @@
 let userState = "selectMemory";
 let timeLimit = 3;
 let level = 1;
+let numbers = [1,2,3];
+let questionNum;
 let countdown = 0;
 let presentTime = 3
 
@@ -53,7 +55,7 @@ function draw(){
       textSize(50);
       text("LEVEL 1", 275, 50);
       fill('#FDF800');
-      circle(150, 350, 200);
+      circle(150, 350, 230);
       fill('#FF1111');
       triangle(450, 200, 450, 350, 600, 350);
       fill('Green');
@@ -75,33 +77,59 @@ function draw(){
   }
   if (userState == "questionMemory")  {
     if (level == 1) {
-      fill('Black');
-      textSize(20);
-      let questionText = text("What shapes did you see that have the same shape and color? Answer by clicking one of the buttons below.", 110, 25, 500, 50); 
+      answer1 = createButton('Purple Pentagons');
+      answer1.position(50, 100);
+      answer1.size(300,200);
+      answer1.style("font-size", "25px")
+      
+      answer2 = createButton("Red Triangles");
+      answer2.position(350, 100);
+      answer2.size(300,200);
+      answer2.style("font-size", "25px")
+      
+      answer3 = createButton("Yellow Circles");
+      answer3.position(350, 300);
+      answer3.size(300,200);
+      answer3.style("font-size", "25px")
+      
+      answer4 = createButton("Green Rectangles");
+      answer4.position(50, 300);
+      answer4.size(300,200);
+      answer4.style("font-size", "25px")
+      
+      if (questionNum == 1) {
+        fill('Black');
+        textSize(30);
+        let questionText = text("Which shape appeared the most? (2x)", 350, 60);
+        textAlign(CENTER)
         
-      answer = createButton('Purple Pentagons');
-      answer.position(50, 100);
-      answer.size(300,200);
-      answer.style("font-size", "25px")
-      answer.mousePressed(correctPage);
+        answer1.mousePressed(correctPage);
+        answer2.mousePressed(wrongPage);
+        answer3.mousePressed(wrongPage);
+        answer4.mousePressed(wrongPage);
+      }
+      if (questionNum == 2) {
+        fill('Black');
+        textSize(30);
+        let questionText = text("Which shape was farthest to the right?", 350, 60);
+        textAlign(CENTER)
         
-      wrongAnswer1 = createButton("Red Triangles");
-      wrongAnswer1.position(350, 100);
-      wrongAnswer1.size(300,200);
-      wrongAnswer1.style("font-size", "25px")
-      wrongAnswer1.mousePressed(wrongPage);
+        answer1.mousePressed(correctPage);
+        answer2.mousePressed(wrongPage);
+        answer3.mousePressed(wrongPage);
+        answer4.mousePressed(wrongPage);
+      }
+      if (questionNum == 3) {
+        fill('Black');
+        textSize(30);
+        let questionText = text("Which shape was the largest?", 350, 60); 
+        textAlign(CENTER)
         
-      wrongAnswer2 = createButton("Yellow Rectangles");
-      wrongAnswer2.position(350, 300);
-      wrongAnswer2.size(300,200);
-      wrongAnswer2.style("font-size", "25px")
-      wrongAnswer2.mousePressed(wrongPage);
-        
-      wrongAnswer3 = createButton("Green Circles");
-      wrongAnswer3.position(50, 300);
-      wrongAnswer3.size(300,200);
-      wrongAnswer3.style("font-size", "25px")
-      wrongAnswer3.mousePressed(wrongPage);
+        answer1.mousePressed(wrongPage);
+        answer2.mousePressed(wrongPage);
+        answer3.mousePressed(correctPage);
+        answer4.mousePressed(wrongPage);
+      }
     }
     if (level == 2) {
       
@@ -140,6 +168,7 @@ function memoryNext() {
 
 function advance() {
   userState = "questionMemory"
+  questionNum = random(numbers)
   removeElements()
 }
 
