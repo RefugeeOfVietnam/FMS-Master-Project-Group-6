@@ -45,6 +45,10 @@ function draw(){
   
   if (userState == "imageMemory") {
     countDown = timeLimit - presentTime;
+    textAlign(LEFT)
+    textSize(24);
+    fill(0);
+    text("TIME LEFT: " + countDown, 25, 575);
     if (frameCount % 60 ==0) {
       presentTime++;
     }
@@ -53,7 +57,9 @@ function draw(){
     }
     if (level == 1) {
       textSize(50);
-      text("LEVEL 1", 275, 50);
+      textAlign(CENTER)
+      text("LEVEL 1", 350, 60);
+      
       fill('#FDF800');
       circle(150, 350, 230);
       fill('#FF1111');
@@ -63,16 +69,16 @@ function draw(){
       fill('Purple');
       polygon(600, 150, 70, 5);
       polygon(350, 450, 80, 5);
-  
-      textSize(24);
-      fill(0);
-      text("TIME LEFT: " + countDown, 25, 575);
     }
     if(level == 2) {
-      
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 2", 350, 60);
     }
     if(level == 3) {
-      
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 3", 350, 60);
     }
   }
   if (userState == "questionMemory")  {
@@ -103,10 +109,10 @@ function draw(){
         let questionText = text("Which shape appeared the most? (2x)", 350, 60);
         textAlign(CENTER)
         
-        answer1.mousePressed(correctPage);
-        answer2.mousePressed(wrongPage);
-        answer3.mousePressed(wrongPage);
-        answer4.mousePressed(wrongPage);
+        answer1.mousePressed(correct);
+        answer2.mousePressed(gameOver);
+        answer3.mousePressed(gameOver);
+        answer4.mousePressed(gameOver);
       }
       if (questionNum == 2) {
         fill('Black');
@@ -114,10 +120,10 @@ function draw(){
         let questionText = text("Which shape was farthest to the right?", 350, 60);
         textAlign(CENTER)
         
-        answer1.mousePressed(correctPage);
-        answer2.mousePressed(wrongPage);
-        answer3.mousePressed(wrongPage);
-        answer4.mousePressed(wrongPage);
+        answer1.mousePressed(correct);
+        answer2.mousePressed(gameOver);
+        answer3.mousePressed(gameOver);
+        answer4.mousePressed(gameOver);
       }
       if (questionNum == 3) {
         fill('Black');
@@ -125,17 +131,33 @@ function draw(){
         let questionText = text("Which shape was the largest?", 350, 60); 
         textAlign(CENTER)
         
-        answer1.mousePressed(wrongPage);
-        answer2.mousePressed(wrongPage);
-        answer3.mousePressed(correctPage);
-        answer4.mousePressed(wrongPage);
+        answer1.mousePressed(gameOver);
+        answer2.mousePressed(gameOver);
+        answer3.mousePressed(correct);
+        answer4.mousePressed(gameOver);
       }
     }
     if (level == 2) {
-      
+      if (questionNum == 1) {
+        
+      }
+      if (questionNum == 2) {
+        
+      }
+      if (questionNum == 3) {
+        
+      }
     }
     if (level == 3) {
-      
+      if (questionNum == 1) {
+        
+      }
+      if (questionNum == 2) {
+        
+      }
+      if (questionNum == 3) {
+        
+      }
     }
   }
   
@@ -155,8 +177,8 @@ function selectMemory() {
   removeElements();
 }
 
-function wrongPage(){
-  userState = "incorrect";
+function gameOver(){
+  userState = "lose";
   removeElements();
 }
 
