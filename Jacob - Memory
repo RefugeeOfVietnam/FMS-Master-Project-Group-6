@@ -3,8 +3,8 @@ let timeLimit = 3;
 let level = 1;
 let numbers = [1,2,3];
 let questionNum;
-let countdown = 0;
-let presentTime = 3
+let countdown;
+let presentTime = 0
 
 function setup () {
   cnv = createCanvas(700, 600); 
@@ -19,8 +19,6 @@ function draw(){
   home.mousePressed(homeScreen)
   
   if (userState == "selectMemory") {
-    presentTime = 0
-    countDown = 0;
     rect(350-75,170,150,60, 40);
     let titleText = text("Memory",287,212);
     titleText.textSize(18);
