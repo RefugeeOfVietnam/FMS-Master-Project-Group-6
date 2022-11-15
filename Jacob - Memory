@@ -1,7 +1,8 @@
 let userState = "selectMemory";
 let timeLimit = 3;
 let level = 1;
-let countdown;
+let countdown = 0;
+let presentTime = 3
 
 function setup () {
   cnv = createCanvas(700, 600); 
@@ -16,6 +17,8 @@ function draw(){
   home.mousePressed(homeScreen)
   
   if (userState == "selectMemory") {
+    presentTime = 0
+    countDown = 0;
     rect(350-75,170,150,60, 40);
     let titleText = text("Memory",287,212);
     titleText.textSize(18);
@@ -39,6 +42,10 @@ function draw(){
   }
   
   if (userState == "imageMemory") {
+    countDown = timeLimit - presentTime;
+    if (frameCount % 60 ==0) {
+      presentTime++;
+    }
     if (countDown < 0) {
       advance()
     }
@@ -54,8 +61,6 @@ function draw(){
       fill('Purple');
       polygon(600, 150, 70, 5);
       polygon(350, 450, 80, 5);
-      let presentTime = int(millis() / 1000);
-      countDown = timeLimit - presentTime;
   
       textSize(24);
       fill(0);
@@ -127,7 +132,7 @@ function wrongPage(){
 function memoryNext() {
   userState = "imageMemory";
   removeElements();
-  countDown = 0;
+  frameCount = 0;
 }
 
 function advance() {
