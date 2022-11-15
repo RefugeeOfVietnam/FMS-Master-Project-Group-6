@@ -118,7 +118,7 @@ function draw(){
   
 function correctPage(){
   userState = "memoryNext";
-  countDown = 0;
+  level++;
   removeElements();
 }
 
@@ -129,7 +129,6 @@ function selectMemory() {
 
 function wrongPage(){
   userState = "incorrect";
-  countDown = 0;
   removeElements();
 }
 
@@ -142,7 +141,6 @@ function memoryNext() {
 function advance() {
   userState = "questionMemory"
   removeElements()
-  countDown = 0
 }
 
 function homeScreen() {
