@@ -305,10 +305,12 @@ function draw() {
         incorrect6.size(700,100)
       }
       if(numDrawing == 2) {
+        fill("white")
         rect(300,430,300,70)
         rect(540,200,60,230)
         rect(300,200,240,50)
         rect(300,100,100,100)
+        fill("black")
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 135)       
@@ -335,10 +337,12 @@ function draw() {
         incorrect6.size(700,100)
       }
       if(numDrawing == 3) {
+        fill("white")
         rect(300,300,100,200)
         rect(400,300,200,50)
         rect(550,100,50,200)
         rect(300,100,250,50)
+        fill("black")
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 135)
@@ -369,12 +373,14 @@ function draw() {
     if (level == 3) {
       correct.mouseOver(youWin);
       if(numDrawing == 1) {
+        fill("white")
         rect(300,430,290,70)
         rect(540,100,50,330)
         rect(440,100,100,45)
         rect(440,145,40,205)
         rect(200,315,240,35)
         rect(200,100,80,215)
+        fill("black")
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 207, 135)
@@ -407,13 +413,14 @@ function draw() {
         incorrect8.size(60,285)
       }
       if(numDrawing == 2) {
+        fill("white")
         rect(310,380,80,120)
         rect(390,380,210,50)
         rect(555,145,45,235)
         rect(450,145,105,40)
         rect(450,145,40,205)
         rect(200,315,250,35)
-        
+        fill("black")
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 207, 340)
@@ -449,6 +456,7 @@ function draw() {
         incorrect9.size(300,170)
       }
       if(numDrawing == 3) {
+        fill("white")
         rect(100,420,300,80)
         rect(100,300,60,120)
         rect(160,300,400,50)
@@ -456,6 +464,7 @@ function draw() {
         rect(560,410,80,40)
         rect(600,100,40,310)
         rect(300,100,300,35)
+        fill("black")
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 126)
@@ -715,6 +724,8 @@ function youWin() {
 
 function homeScreen() {
   userState = "home"
+  level = 1;
+  attemptNum = 0;
   textAlign(LEFT)
   removeElements()
 }
