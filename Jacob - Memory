@@ -19,11 +19,12 @@ function draw(){
   home.mousePressed(homeScreen)
   
   if (userState == "selectMemory") {
+    fill("white")
+    rect(130,280,440,100)
     rect(350-75,170,150,60, 40);
+    fill("black")
     let titleText = text("Memory",287,212);
     titleText.textSize(18);
-  
-    rect(130,280,440,100)
     let instrText = text("Instructions: The next screen will show an image with multiple shapes of different colors. After 3 seconds, the page will disappear and a question will be asked about a detail of the image. Get 3 correct to win.", 137, 286, 430, 200)
     instrText.textSize(35);
     
@@ -219,6 +220,7 @@ function memoryNext() {
   userState = "imageMemory";
   removeElements();
   frameCount = 0;
+  presentTime = 0;
 }
 
 function advance() {
