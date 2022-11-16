@@ -44,11 +44,11 @@ function draw() {
     memory.style('font-size','35px')
     memory.mousePressed(selectMemory);
   
-    matching = createButton("Matching");
+    matching = createButton("Reaction");
     matching.position(275,350);
     matching.style('color:#0096FF');
     matching.style('font-size','35px')
-    matching.mousePressed(selectMatching);
+    matching.mousePressed(selectReaction);
   
     tracing = createButton("Tracing");
     tracing.position(485,350);
@@ -742,8 +742,8 @@ function selectMemory() {
   removeElements()
 }
 
-function selectMatching() {
-  userState = "startMatching"
+function selectReaction() {
+  userState = "startReaction"
   removeElements()
 }
 
