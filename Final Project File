@@ -27,14 +27,15 @@ function draw() {
     gameSelection.mousePressed(gameSelect)
     
     let FMS;
+    fill("white")
     rect(200,170,300,80,40)
-    FMS = text("Project FMS",213,227)
-    textSize(50)
-    
     triangle1 = triangle(45*2,30*2,80*2,70*2,25*2,80*2);
     rect1 = rect(600-90,30*2,160,70);
     ellipse1 = ellipse(120,460,120,90)
     arc1 = arc(700-120,510,80,200,400,88,PIE)
+    fill("black")
+    FMS = text("Project FMS",213,227)
+    textSize(50)
   }
   
   if (userState == "gameSelection") {
@@ -57,13 +58,17 @@ function draw() {
     tracing.mousePressed(selectTracing);
     
     let FMS;
+    fill("white")
     rect(200,170,300,80,40)
+    fill("black")
     FMS = text("Project FMS",213,227)
     textSize(50)
   }
   
   if (userState == "lose") {
+    fill("white")
     rect(150,100,400,150)
+    fill("black")
     text("You Lost",250,190)
     textSize(50)
     
@@ -76,7 +81,9 @@ function draw() {
   }
   
   if (userState == "win") {
+    fill("white")
     rect(150,100,400,150)
+    fill("black")
     text("You Win!!!",250,190)
     textSize(50)
     
@@ -88,12 +95,13 @@ function draw() {
   }
   
   if (userState == "startTracing") {
+    fill("white")
     rect(350-75,170,150,60, 40);
+    rect(135,280,430,100)
+    fill("black")
     let titleText = text("Tracing",290,212);
     titleText.textAlign();
     titleText.textSize(18);
-  
-    rect(135,280,430,100)
     let instrText = text("Instructions: Move your mouse from the \"Start\" region  through the white rectangles to the \"Finish\" region. Pass each of the 3 levels in 3 tries to win.", 145, 290, 430, 200)
     instrText.textAlign();
     instrText.textSize(35);
@@ -115,11 +123,12 @@ function draw() {
   } 
   
   if (userState == "tryAgain") {
+    fill("white")
+    let r1 = rect(150,100,400,150)
+    fill("black")
     text("Attempts remaining: " + (3 - attemptNum),20,50)  
     text("Level: " + level + " / 3",550,51)
     textSize(50)
-    
-    let r1 = rect(150,100,400,150)
     r1.text("Not Quite",250,188)
     r1.textSize(25)
     
@@ -131,10 +140,11 @@ function draw() {
   }
   
   if (userState == "nextLevel") {
+    fill("white")
+    let r1 = rect(150,100,400,150)
+    fill("black")
     text("Next Level: " + level + " / 3",492,51)
     textSize(50)
-    
-    let r1 = rect(150,100,400,150)
     r1.text("Great Job!",240,188)
     r1.textSize(25)
     
@@ -146,6 +156,7 @@ function draw() {
   }
   
   if (userState == "play") {
+    fill("black")
     text("Attempts remaining: " + (3 - attemptNum),20,50)
     text("Level: " + level + " / 3",550,51)
     
@@ -180,8 +191,10 @@ function draw() {
       correct.mouseOver(goodJob)
       
       if(numDrawing == 1) {
+        fill("white")
         rect(200,420,200,80)
         rect(200,100,100,320)
+        fill("black")
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 215, 140)
@@ -205,8 +218,10 @@ function draw() {
         incorrect5.size(300,420)
       }
       if(numDrawing == 2) {
+        fill("white")
         rect(300,420,200,80)
         rect(400,100,100,320)
+        fill("black")
         let startLvl = text("Start", 320, 470)
         startLvl.textSize(25)
         let finish = text("Finish", 415, 140)
@@ -231,7 +246,9 @@ function draw() {
         incorrect5.size(700,100)
       }
       if(numDrawing == 3) {
+        fill("white")
         rect(300,100,100,400)
+        fill("black")
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 140)
@@ -256,10 +273,12 @@ function draw() {
     if (level == 2) {
       correct.mouseOver(goodJob)
       if(numDrawing == 1) {
+        fill("white")
         rect(100,430,300,70)
         rect(100,300,60,130)
         rect(300,100,100,200)
         rect(160,300,240,50)
+        fill("black")
         let startLvl = text("Start", 320, 470)
         textSize(25)
         let finish = text("Finish", 315, 135)       
@@ -696,6 +715,7 @@ function youWin() {
 
 function homeScreen() {
   userState = "home"
+  textAlign(LEFT)
   removeElements()
 }
 
@@ -703,11 +723,13 @@ function gameOver() {
   userState = "lose"
   attemptNum = 0;
   level = 1;
+  textAlign(LEFT)
   removeElements()
 }
 
 function gameSelect() {
   userState = "gameSelection"
+  textAlign(LEFT)
   removeElements()
 }
 
@@ -717,7 +739,7 @@ function selectTracing() {
 }
 
 function selectMemory() {
-  userState = "startMemory"
+  userState = "selectMemory"
   removeElements()
 }
 
@@ -744,11 +766,6 @@ function memoryNext() {
 function advance() {
   userState = "questionMemory"
   questionNum = random(numbers)
-  removeElements()
-}
-
-function selectMemory() {
-  userState = "selectMemory"
   removeElements()
 }
 
