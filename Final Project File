@@ -93,6 +93,10 @@ function draw() {
     home.mousePressed(homeScreen);
   }
   
+  //
+  // Below are all the Tracing Game unique userStates
+  //
+  
   if (userState == "startTracing") {
     fill("white")
     rect(350-75,170,150,60, 40);
