@@ -41,6 +41,41 @@ function draw(){
     start.mousePressed(memoryNext);
   }
   
+  if (userState == "memoryNextLevel") {
+    
+    textAlign(LEFT)
+    text("Next Level: " + level + " / 3",492,51)
+    textSize(50)
+    
+   
+    rect(150,100,400,150)
+    
+    text("Great Job!",240,188)
+    textSize(25)
+    
+    nextLvl = createButton("Next Level")
+    nextLvl.position(300,430)
+    nextLvl.size(100,70)
+    nextLvl.style("font-size", "22px")
+    nextLvl.mousePressed(memoryNext)
+  }
+  
+  if (userState == "lose") {
+    fill("white")
+    textAlign(LEFT)
+    rect(150,100,400,150)
+    fill("black")
+    text("You Lost",250,190)
+    textSize(50)
+    
+    startOver = createButton("Start Over")
+    startOver.position(300,430);
+    startOver.size(100,70)
+    startOver.style('color:#0096FF');
+    startOver.style('font-size','25px');
+    startOver.mousePressed(selectMemory);
+  }
+  
   if (userState == "imageMemory") {
     countDown = timeLimit - presentTime;
     textAlign(LEFT)
@@ -58,15 +93,16 @@ function draw(){
       textAlign(CENTER)
       text("LEVEL 1", 350, 60);
       
-      fill('#FDF800');
-      circle(150, 350, 230);
-      fill('#FF1111');
-      triangle(450, 200, 450, 350, 600, 350);
-      fill('Green');
-      rect(100, 100, 200, 100)
-      fill('Purple');
-      polygon(600, 150, 70, 5);
-      polygon(350, 450, 80, 5);
+      let object1 = circle(150, 350, 230);
+      object1.fill('#FDF800');
+      let object2 = triangle(450, 200, 450, 350, 600, 350);
+      object2.fill('#FF1111');
+      let object3 = rect(100, 100, 200, 100)
+      object3.fill('Green');
+      let object4 = polygon(600, 150, 70, 5);
+      object4.fill('Purple');
+      let object5 = polygon(350, 450, 80, 5);
+      object5.fill('Purple');
     }
     if(level == 2) {
       textSize(50);
@@ -102,7 +138,7 @@ function draw(){
       answer4.style("font-size", "25px")
       
       if (questionNum == 1) {
-        fill('Black');
+        
         textSize(30);
         let questionText = text("Which shape appeared the most? (2x)", 350, 60);
         textAlign(CENTER)
@@ -113,7 +149,7 @@ function draw(){
         answer4.mousePressed(gameOver);
       }
       if (questionNum == 2) {
-        fill('Black');
+        
         textSize(30);
         let questionText = text("Which shape was farthest to the right?", 350, 60);
         textAlign(CENTER)
@@ -124,7 +160,7 @@ function draw(){
         answer4.mousePressed(gameOver);
       }
       if (questionNum == 3) {
-        fill('Black');
+        
         textSize(30);
         let questionText = text("Which shape was the largest?", 350, 60); 
         textAlign(CENTER)
@@ -163,20 +199,18 @@ function draw(){
     
   }
 }
-  
-function correct(){
-  userState = "memoryNext";
-  level++;
-  removeElements();
-}
 
-function selectMemory() {
-  userState = "startMemory"
-  removeElements();
+function correct() {
+  level = level + 1;
+  attemptNum = 0;
+  userState = "memoryNextLevel";
+  numDrawing = random(numbers)
+  removeElements()
 }
 
 function gameOver(){
   userState = "lose";
+  level = 1;
   removeElements();
 }
 
@@ -189,6 +223,11 @@ function memoryNext() {
 function advance() {
   userState = "questionMemory"
   questionNum = random(numbers)
+  removeElements()
+}
+
+function selectMemory() {
+  userState = "selectMemory"
   removeElements()
 }
 
