@@ -72,12 +72,11 @@ function draw() {
     text("You Lost",250,190)
     textSize(50)
     
-    startOver = createButton("Start Over")
-    startOver.position(300,430);
-    startOver.size(100,70)
-    startOver.style('color:#0096FF');
-    startOver.style('font-size','25px');
-    startOver.mousePressed(selectTracing);
+    home.position(300,430);
+    home.size(100,70)
+    home.style('color:#0096FF');
+    home.style('font-size','25px');
+    home.mousePressed(homeScreen);
   }
   
   if (userState == "win") {
@@ -514,7 +513,9 @@ function draw() {
     gameOver();
   }
   
-  //Below are all the Memory Game unique userState's
+  //
+  // Below are all the Memory Game unique userState's
+  //
   
   if (userState == "selectMemory") {
     fill("white")
@@ -557,22 +558,6 @@ function draw() {
     nextLvl.size(100,70)
     nextLvl.style("font-size", "22px")
     nextLvl.mousePressed(memoryNext)
-  }
-  
-  if (userState == "lose") {
-    fill("white")
-    textAlign(LEFT)
-    rect(150,100,400,150)
-    fill("black")
-    text("You Lost",250,190)
-    textSize(50)
-    
-    startOver = createButton("Start Over")
-    startOver.position(300,430);
-    startOver.size(100,70)
-    startOver.style('color:#0096FF');
-    startOver.style('font-size','25px');
-    startOver.mousePressed(selectMemory);
   }
   
   if (userState == "imageMemory") {
