@@ -154,31 +154,31 @@ function draw(){
       shape.style('background-color', 'red')
     }
     if (shapePosition == 2) {
-      shape.position(250, 300);
+      shape.position(550, 350);
       shape.style('background-color', 'blue')
     }
     if (shapePosition == 3) {
-      shape.position(50, 200);
+      shape.position(250, 450);
       shape.style('background-color', 'yellow')
     }
-    if (shapePosition == 4) {
-      shape.position(90, 200);
+    if (shapePosition== 4) {
+      shape.position(150, 250);
       shape.style('background-color', 'green')
     }
     if (shapePosition == 5) {
-      shape.position(270, 300);
+      shape.position(400, 300);
       shape.style('background-color', 'purple')
     }
     if (shapePosition == 6) {
-      shape.position(400, 100);
+      shape.position(500, 150);
       shape.style('background-color', 'white')
     }
     if (shapePosition == 7) {
-      shape.position(350, 400);
+      shape.position(450, 400);
       shape.style('background-color', 'brown')
     }
     if (shapePosition == 8) {
-      shape.position(180, 400); 
+      shape.position(100, 200); 
       shape.style('background-color', 'gray')
     }
     
@@ -261,4 +261,5 @@ function gameSelect() {
 
 function youWin() {
   removeElements();
+  userState = "yay"
 }
