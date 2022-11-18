@@ -6,6 +6,8 @@ let timeLimit = 3;
 let questionNum;
 let countdown;
 let presentTime = 0
+let reactionNumbers = [1,2,3,4,5,6,7,8];
+let randTime = [1,1.25,1.5,1.75,2,2.25,2.5,2.75,3]
 
 function setup() {
   createCanvas(700, 600);
@@ -790,6 +792,175 @@ function draw() {
       }
     }
   }
+  if (userState == "startReaction") {
+    fill("white")
+    rect(130,280,440,100)
+    rect(350-75,170,150,60, 40);
+    fill("black")
+    let titleText = text("Reaction",283,212);
+    titleText.textSize(18);
+    let instrText = text("Instructions: Between 1 and 3 seconds after advancing, a shape will appear on your screen. Click it within the specified time limit to move on. Pass all 3 levels to win.", 137, 286, 430, 200)
+    instrText.textSize(35);
+    
+    back = createButton("Back")
+    back.position(30,530)
+    back.size(70,40)
+    back.style("font-size", "20px")
+    back.mousePressed(gameSelect)
+    
+    start = createButton("Start")
+    start.position(300,430);
+    start.size(100,70)
+    start.style('color:#0096FF');
+    start.style('font-size','25px');
+    start.mousePressed(reactionNext);
+  }
+  
+  if (userState == "reactionNextLevel") {
+    fill("black")
+    textAlign(LEFT)
+    text("Next Level: " + level + " / 3",492,51)
+    textSize(50)
+    
+    fill("white")
+    rect(150,100,400,150)
+    fill("black")
+    text("Great Job!",240,188)
+    textSize(25)
+    
+    nextLvl = createButton("Next Level")
+    nextLvl.position(300,430)
+    nextLvl.size(100,70)
+    nextLvl.style("font-size", "22px")
+    nextLvl.mousePressed(reactionNext)
+  }
+  
+  if (userState == "blankScreen") {
+    countDown = random(randTime) - presentTime;
+    textAlign(LEFT)
+    textSize(24);
+    fill("black")
+    text("TIME ALOTTED: " + timeLimit, 25, 575);
+    textAlign(CENTER)
+    textSize(70);
+    text("Ready?", 350,300)
+    if (frameCount % 5 == 0) {
+      presentTime = presentTime + 0.05;
+    }
+    if (countDown < 0) {
+      displayShape()
+    }
+    if (level == 1) {
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 1", 350, 60);
+      timeLimit = 1
+    }
+    if(level == 2) {
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 2", 350, 60);
+      timeLimit = 0.7
+    }
+    if(level == 3) {
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 3", 350, 60);
+      timeLimit = 0.4
+    }
+  }
+  if (userState == "displayShape")  {
+    textAlign(LEFT)
+    textSize(24);
+    fill("black")
+    text("TIME ALOTTED: " + timeLimit, 25, 575);
+    countDown = timeLimit - presentTime;
+    if (frameCount % 5 == 0) {
+      presentTime = presentTime + 0.05;
+    }
+    
+    if (level == 1) {
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 1", 350, 60);
+      timeLimit = 1
+    }
+    if(level == 2) {
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 2", 350, 60);
+      timeLimit = 0.7
+    }
+    if(level == 3) {
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 3", 350, 60);
+      timeLimit = 0.4
+    }
+    
+    shape = createButton("");
+    shape.size(125,100);
+    shape.mousePressed(gotIt)
+    
+    if (countDown < 0) {
+      tooSlow()
+    }
+      
+    if (shapePosition == 1) {
+      shape.position(50, 100);
+      shape.style('background-color', 'red')
+    }
+    if (shapePosition == 2) {
+      shape.position(550, 350);
+      shape.style('background-color', 'blue')
+    }
+    if (shapePosition == 3) {
+      shape.position(250, 450);
+      shape.style('background-color', 'yellow')
+    }
+    if (shapePosition== 4) {
+      shape.position(150, 250);
+      shape.style('background-color', 'green')
+    }
+    if (shapePosition == 5) {
+      shape.position(400, 300);
+      shape.style('background-color', 'purple')
+    }
+    if (shapePosition == 6) {
+      shape.position(500, 150);
+      shape.style('background-color', 'white')
+    }
+    if (shapePosition == 7) {
+      shape.position(450, 400);
+      shape.style('background-color', 'brown')
+    }
+    if (shapePosition == 8) {
+      shape.position(100, 200); 
+      shape.style('background-color', 'gray')
+    }
+  }
+  if (userState == "notQuite") {
+    fill("white")
+    let r1 = rect(150,100,400,150)
+    fill("black")
+    text("Attempts remaining: " + (3 - attemptNum),20,50)  
+    text("Level: " + level + " / 3",550,51)
+    textSize(50)
+    r1.text("Not Quite",250,188)
+    r1.textSize(25)
+    
+    retry = createButton("Try Again")
+    retry.position(300,430)
+    retry.size(100,70)
+    retry.style("font-size", "22px")
+    retry.mousePressed(reactionNext)
+  }
+  if (attemptNum >= 3) {
+    gameOver()
+  }
+  if (level > 3) {
+    youWin();
+  }
 }
 
 function goodJob() {
@@ -887,4 +1058,38 @@ function polygon(x, y, radius, npoints) {
   endShape(CLOSE);
 }
 
-//Add any needed Reaction Time Functions here
+function gotIt() {
+  level = level + 1;
+  attemptNum = 0;
+  userState = "reactionNextLevel";
+  shapePosition = random(reactionNumbers)
+  removeElements()
+}
+
+function tooSlow() {
+  attemptNum++;
+  userState = "notQuite";
+  textAlign(LEFT)
+  shapePosition = random(reactionNumbers)
+  removeElements();
+}
+
+function reactionNext() {
+  userState = "blankScreen";
+  removeElements();
+  frameCount = 0;
+  presentTime = 0;
+}
+
+function displayShape() {
+  userState = "displayShape"
+  shapePosition = random(reactionNumbers)
+  frameCount = 0;
+  presentTime = 0
+  removeElements()
+}
+
+function selectReaction() {
+  userState = "startReaction"
+  removeElements()
+}
