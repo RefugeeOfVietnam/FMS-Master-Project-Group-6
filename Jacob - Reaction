@@ -1,5 +1,5 @@
 let userState = "startReaction";
-let level = 2;
+let level = 1;
 let reactionNumbers = [1,2,3,4,5,6,7,8];
 let randTime = [1,1.25,1.5,1.75,2,2.25,2.5,2.75,3]
 let countdown;
@@ -202,6 +202,9 @@ function draw(){
   if (attemptNum >= 3) {
     gameOver()
   }
+  if (level > 3) {
+    youWin();
+  }
 }
 
 
@@ -217,6 +220,7 @@ function tooSlow() {
   attemptNum++;
   userState = "notQuite";
   textAlign(LEFT)
+  shapePosition = random(reactionNumbers)
   removeElements();
 }
 
@@ -253,4 +257,8 @@ function homeScreen() {
 
 function gameSelect() {
   
+}
+
+function youWin() {
+  removeElements();
 }
