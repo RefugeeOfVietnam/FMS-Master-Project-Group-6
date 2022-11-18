@@ -5,6 +5,7 @@ let randTime = [1,1.25,1.5,1.75,2,2.25,2.5,2.75,3]
 let countdown;
 let presentTime = 0
 let timeLimit;
+let attemptNum = 0
 
 function setup () {
   cnv = createCanvas(700, 600); 
@@ -116,6 +117,10 @@ function draw(){
     textSize(24);
     fill("black")
     text("TIME ALOTTED: " + timeLimit, 25, 575);
+    countDown = timeLimit - presentTime;
+    if (frameCount % 5 == 0) {
+      presentTime = presentTime + 0.05;
+    }
     
     if (level == 1) {
       textSize(50);
@@ -140,48 +145,51 @@ function draw(){
     shape.size(300,200);
     shape.mousePressed(gotIt)
     
-    countdown = timeLimit - presentTime;
+    if (countDown < 0) {
+      tooSlow()
+    }
       
     if (shapePosition == 1) {
       shape.position(50, 100);
-      shape.style('color:red')
+      shape.style('background-color', '#ff0000')
     }
     if (shapePosition == 2) {
       shape.position(50, 100);
-      shape.style('color:red')
+      shape.style('background-color', '#ff0000')
     }
     if (shapePosition == 3) {
       shape.position(50, 100);
-      shape.style('color:red')
+      shape.style('background-color', '#ff0000')
     }
     if (shapePosition == 4) {
       shape.position(50, 100);
-      shape.style('color:red')
+      shape.style('background-color', '#ff0000')
     }
     if (shapePosition == 5) {
       shape.position(50, 100);
-      shape.style('color:red')
+      shape.style('background-color', '#ff0000')
     }
     if (shapePosition == 6) {
       shape.position(50, 100);
-      shape.style('color:red')
+      shape.style('background-color', '#ff0000')
     }
     if (shapePosition == 7) {
       shape.position(50, 100);
-      shape.style('color:red')
+      shape.style('background-color', '#ff0000')
     }
     if (shapePosition == 8) {
       shape.position(50, 100); 
-      shape.style('color:red')
+      shape.style('background-color', '#ff0000')
     }
     
   }
   if (userState == "notQuite") {
+    fill("white")
+    let r1 = rect(150,100,400,150)
+    fill("black")
     text("Attempts remaining: " + (3 - attemptNum),20,50)  
     text("Level: " + level + " / 3",550,51)
     textSize(50)
-    
-    let r1 = rect(150,100,400,150)
     r1.text("Not Quite",250,188)
     r1.textSize(25)
     
@@ -190,6 +198,9 @@ function draw(){
     retry.size(100,70)
     retry.style("font-size", "22px")
     retry.mousePressed(reactionNext)
+  }
+  if (attemptNum >= 3) {
+    gameOver()
   }
 }
 
@@ -203,12 +214,16 @@ function gotIt() {
 }
 
 function tooSlow() {
-  attemptNum = 0;
+  attemptNum++;
+  userState = "notQuite";
+  textAlign(LEFT)
+  removeElements();
 }
 
 function gameOver() {
   userState = "lose";
   level = 1;
+  attemptNum = 1;
   removeElements();
 }
 
