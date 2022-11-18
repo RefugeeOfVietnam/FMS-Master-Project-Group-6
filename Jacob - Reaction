@@ -1,6 +1,10 @@
 let userState = "startReaction";
-let level = 1;
+let level = 2;
 let reactionNumbers = [1,2,3,4,5,6,7,8];
+let randTime = [1,1.25,1.5,1.75,2,2.25,2.5,2.75,3]
+let countdown;
+let presentTime = 0
+let timeLimit;
 
 function setup () {
   cnv = createCanvas(700, 600); 
@@ -74,85 +78,74 @@ function draw(){
   }
   
   if (userState == "blankScreen") {
-    countDown = timeLimit - presentTime;
+    countDown = timeLimit + random(randTime) - presentTime;
     textAlign(LEFT)
     textSize(24);
     fill("black")
-    text("TIME LEFT: " + countDown, 25, 575);
-    if (frameCount % 60 ==0) {
-      presentTime++;
+    text("TIME ALOTTED: " + timeLimit, 25, 575);
+    if (frameCount % 5 == 0) {
+      presentTime = presentTime + 0.05;
     }
     if (countDown < 0) {
-      advance()
+      displayShape()
     }
     if (level == 1) {
       textSize(50);
       textAlign(CENTER)
-      text("LEVEL 1", 350, 60);    
+      text("LEVEL 1", 350, 60);
+      timeLimit = 1
     }
     if(level == 2) {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 2", 350, 60);
+      timeLimit = 0.7
     }
     if(level == 3) {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 3", 350, 60);
+      timeLimit = 0.4
     }
   }
   if (userState == "displayShape")  {
-    if (level == 1) {
-      shape = createButton("");
-      shape.size(300,200);
+    shape = createButton("");
+    shape.size(300,200);
+    shape.mousePressed(gotIt)
       
-      if (numbers == 1) {
-        shape.position(50, 100);
-      }
-      if (questionNum == 2) {
-        fill("black")
-        textSize(30);
-        let questionText = text("Which shape was farthest to the right?", 350, 60);
-        textAlign(CENTER)
-        
-        answer1.mousePressed(correct);
-        answer2.mousePressed(gameOver);
-        answer3.mousePressed(gameOver);
-        answer4.mousePressed(gameOver);
-      }
-      if (questionNum == 3) {
-        fill("black")
-        textSize(30);
-        let questionText = text("Which shape was the largest?", 350, 60); 
-        textAlign(CENTER)
-        
-        answer1.mousePressed(gameOver);
-        answer2.mousePressed(gameOver);
-        answer3.mousePressed(correct);
-        answer4.mousePressed(gameOver);
-      }
+    if (numbers == 1) {
+      shape.position(50, 100);
+      shape.style('color:red')
     }
-    if (level == 2) {
-      if (questionNum == 1) {
-        
-      }
-      if (questionNum == 2) {
-        
-      }
-      if (questionNum == 3) {
-        
-      }
+    if (numbers == 2) {
+      shape.position(50, 100);
+      shape.style('color:red')
     }
-    if (level == 3) {
-      if (questionNum == 1) {
-        
-      }
-      if (questionNum == 2) {
-        
-      }
-      if (questionNum == 3) {
-        
-      }
+    if (numbers == 3) {
+      shape.position(50, 100);
+      shape.style('color:red')
+    }
+    if (numbers == 4) {
+      shape.position(50, 100);
+      shape.style('color:red')
+    }
+    if (numbers == 5) {
+      shape.position(50, 100);
+      shape.style('color:red')
+    }
+    if (numbers == 6) {
+      shape.position(50, 100);
+      shape.style('color:red')
+    }
+    if (numbers == 7) {
+      shape.position(50, 100);
+      shape.style('color:red')
+    }
+    if (numbers == 8) {
+      shape.position(50, 100); 
+      shape.style('color:red')
+    }
+    
     }
   }
   
@@ -161,11 +154,11 @@ function draw(){
   }
 }
 
-function correct() {
+function gotIt() {
   level = level + 1;
   attemptNum = 0;
-  userState = "memoryNextLevel";
-  numDrawing = random(numbers)
+  userState = "reactionNextLevel";
+  shapePosition = random(reactionNumbers)
   removeElements()
 }
 
@@ -184,7 +177,7 @@ function reactionNext() {
 
 function displayShape() {
   userState = "displayShape"
-  shapePosition = random(numbers)
+  shapePosition = random(reactionNumbers)
   removeElements()
 }
 
