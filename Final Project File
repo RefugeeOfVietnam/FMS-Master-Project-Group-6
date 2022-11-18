@@ -1027,6 +1027,7 @@ function selectTracing() {
 
 function selectMemory() {
   userState = "selectMemory"
+  timeLimit = 3;
   removeElements()
 }
 
