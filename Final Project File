@@ -792,6 +792,11 @@ function draw() {
       }
     }
   }
+  
+  //
+  // Reaction Game specific code begins here
+  //
+  
   if (userState == "startReaction") {
     fill("white")
     rect(130,280,440,100)
@@ -963,6 +968,8 @@ function draw() {
   }
 }
 
+// Tracing Game Functions
+
 function goodJob() {
   level = level + 1;
   attemptNum = 0;
@@ -988,6 +995,8 @@ function youWin() {
   level = 1;
   removeElements()
 }
+
+// General Functions
 
 function homeScreen() {
   userState = "home"
@@ -1026,6 +1035,8 @@ function selectReaction() {
   removeElements()
 }
 
+// Memory Functions
+
 function correct() {
   level = level + 1;
   attemptNum = 0;
@@ -1057,6 +1068,8 @@ function polygon(x, y, radius, npoints) {
   }
   endShape(CLOSE);
 }
+
+// Reaction Functions
 
 function gotIt() {
   level = level + 1;
