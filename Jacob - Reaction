@@ -1,6 +1,6 @@
 let userState = "startReaction";
 let level = 1;
-let reactionNumbers = [1,2,3];
+let reactionNumbers = [1,2,3,4,5,6,7,8];
 
 function setup () {
   cnv = createCanvas(700, 600); 
@@ -38,7 +38,7 @@ function draw(){
     start.mousePressed(reactionNext);
   }
   
-  if (userState == "memoryNextLevel") {
+  if (userState == "reactionNextLevel") {
     fill("black")
     textAlign(LEFT)
     text("Next Level: " + level + " / 3",492,51)
@@ -54,7 +54,7 @@ function draw(){
     nextLvl.position(300,430)
     nextLvl.size(100,70)
     nextLvl.style("font-size", "22px")
-    nextLvl.mousePressed(memoryNext)
+    nextLvl.mousePressed(reactionNext)
   }
   
   if (userState == "lose") {
@@ -70,10 +70,10 @@ function draw(){
     startOver.size(100,70)
     startOver.style('color:#0096FF');
     startOver.style('font-size','25px');
-    startOver.mousePressed(selectMemory);
+    startOver.mousePressed(startReaction);
   }
   
-  if (userState == "imageMemory") {
+  if (userState == "blankScreen") {
     countDown = timeLimit - presentTime;
     textAlign(LEFT)
     textSize(24);
@@ -86,21 +86,9 @@ function draw(){
       advance()
     }
     if (level == 1) {
-      fill("black")
       textSize(50);
       textAlign(CENTER)
-      text("LEVEL 1", 350, 60);
-      
-      fill('#FDF800');
-      circle(150, 350, 230);
-      fill('#FF1111');
-      triangle(450, 200, 450, 350, 600, 350);
-      fill('Green');
-      rect(100, 100, 200, 100)
-      fill("purple");
-      polygon(600, 150, 70, 5);
-      polygon(350, 450, 80, 5);
-      
+      text("LEVEL 1", 350, 60);    
     }
     if(level == 2) {
       textSize(50);
@@ -113,38 +101,13 @@ function draw(){
       text("LEVEL 3", 350, 60);
     }
   }
-  if (userState == "questionMemory")  {
+  if (userState == "displayShape")  {
     if (level == 1) {
-      answer1 = createButton('Purple Pentagons');
-      answer1.position(50, 100);
-      answer1.size(300,200);
-      answer1.style("font-size", "25px")
+      shape = createButton("");
+      shape.size(300,200);
       
-      answer2 = createButton("Red Triangles");
-      answer2.position(350, 100);
-      answer2.size(300,200);
-      answer2.style("font-size", "25px")
-      
-      answer3 = createButton("Yellow Circles");
-      answer3.position(350, 300);
-      answer3.size(300,200);
-      answer3.style("font-size", "25px")
-      
-      answer4 = createButton("Green Rectangles");
-      answer4.position(50, 300);
-      answer4.size(300,200);
-      answer4.style("font-size", "25px")
-      
-      if (questionNum == 1) {
-        fill("black")
-        textSize(30);
-        let questionText = text("Which shape appeared the most? (2x)", 350, 60);
-        textAlign(CENTER)
-        
-        answer1.mousePressed(correct);
-        answer2.mousePressed(gameOver);
-        answer3.mousePressed(gameOver);
-        answer4.mousePressed(gameOver);
+      if (numbers == 1) {
+        shape.position(50, 100);
       }
       if (questionNum == 2) {
         fill("black")
@@ -212,16 +175,16 @@ function gameOver(){
   removeElements();
 }
 
-function memoryNext() {
-  userState = "imageMemory";
+function reactionNext() {
+  userState = "blankScreen";
   removeElements();
   frameCount = 0;
   presentTime = 0;
 }
 
-function advance() {
-  userState = "questionMemory"
-  questionNum = random(numbers)
+function displayShape() {
+  userState = "displayShape"
+  shapePosition = random(numbers)
   removeElements()
 }
 
