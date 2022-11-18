@@ -1,0 +1,239 @@
+let userState = "startReaction";
+let level = 1;
+let reactionNumbers = [1,2,3];
+
+function setup () {
+  cnv = createCanvas(700, 600); 
+}
+
+function draw(){
+  background('#0096FF')
+  home = createButton("Home")
+  home.position(600,530)
+  home.size(70,40)
+  home.style("font-size", "20px")
+  home.mousePressed(homeScreen)
+  
+  if (userState == "startReaction") {
+    fill("white")
+    rect(130,280,440,100)
+    rect(350-75,170,150,60, 40);
+    fill("black")
+    let titleText = text("Reaction",283,212);
+    titleText.textSize(18);
+    let instrText = text("Instructions: Between 1 and 3 seconds after advancing, a shape will appear on your screen. Click it within the specified time limit to move on. Pass all 3 levels to win.", 137, 286, 430, 200)
+    instrText.textSize(35);
+    
+    back = createButton("Back")
+    back.position(30,530)
+    back.size(70,40)
+    back.style("font-size", "20px")
+    back.mousePressed(gameSelect)
+    
+    start = createButton("Start")
+    start.position(300,430);
+    start.size(100,70)
+    start.style('color:#0096FF');
+    start.style('font-size','25px');
+    start.mousePressed(reactionNext);
+  }
+  
+  if (userState == "memoryNextLevel") {
+    fill("black")
+    textAlign(LEFT)
+    text("Next Level: " + level + " / 3",492,51)
+    textSize(50)
+    
+    fill("white")
+    rect(150,100,400,150)
+    fill("black")
+    text("Great Job!",240,188)
+    textSize(25)
+    
+    nextLvl = createButton("Next Level")
+    nextLvl.position(300,430)
+    nextLvl.size(100,70)
+    nextLvl.style("font-size", "22px")
+    nextLvl.mousePressed(memoryNext)
+  }
+  
+  if (userState == "lose") {
+    fill("white")
+    textAlign(LEFT)
+    rect(150,100,400,150)
+    fill("black")
+    text("You Lost",250,190)
+    textSize(50)
+    
+    startOver = createButton("Start Over")
+    startOver.position(300,430);
+    startOver.size(100,70)
+    startOver.style('color:#0096FF');
+    startOver.style('font-size','25px');
+    startOver.mousePressed(selectMemory);
+  }
+  
+  if (userState == "imageMemory") {
+    countDown = timeLimit - presentTime;
+    textAlign(LEFT)
+    textSize(24);
+    fill("black")
+    text("TIME LEFT: " + countDown, 25, 575);
+    if (frameCount % 60 ==0) {
+      presentTime++;
+    }
+    if (countDown < 0) {
+      advance()
+    }
+    if (level == 1) {
+      fill("black")
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 1", 350, 60);
+      
+      fill('#FDF800');
+      circle(150, 350, 230);
+      fill('#FF1111');
+      triangle(450, 200, 450, 350, 600, 350);
+      fill('Green');
+      rect(100, 100, 200, 100)
+      fill("purple");
+      polygon(600, 150, 70, 5);
+      polygon(350, 450, 80, 5);
+      
+    }
+    if(level == 2) {
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 2", 350, 60);
+    }
+    if(level == 3) {
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 3", 350, 60);
+    }
+  }
+  if (userState == "questionMemory")  {
+    if (level == 1) {
+      answer1 = createButton('Purple Pentagons');
+      answer1.position(50, 100);
+      answer1.size(300,200);
+      answer1.style("font-size", "25px")
+      
+      answer2 = createButton("Red Triangles");
+      answer2.position(350, 100);
+      answer2.size(300,200);
+      answer2.style("font-size", "25px")
+      
+      answer3 = createButton("Yellow Circles");
+      answer3.position(350, 300);
+      answer3.size(300,200);
+      answer3.style("font-size", "25px")
+      
+      answer4 = createButton("Green Rectangles");
+      answer4.position(50, 300);
+      answer4.size(300,200);
+      answer4.style("font-size", "25px")
+      
+      if (questionNum == 1) {
+        fill("black")
+        textSize(30);
+        let questionText = text("Which shape appeared the most? (2x)", 350, 60);
+        textAlign(CENTER)
+        
+        answer1.mousePressed(correct);
+        answer2.mousePressed(gameOver);
+        answer3.mousePressed(gameOver);
+        answer4.mousePressed(gameOver);
+      }
+      if (questionNum == 2) {
+        fill("black")
+        textSize(30);
+        let questionText = text("Which shape was farthest to the right?", 350, 60);
+        textAlign(CENTER)
+        
+        answer1.mousePressed(correct);
+        answer2.mousePressed(gameOver);
+        answer3.mousePressed(gameOver);
+        answer4.mousePressed(gameOver);
+      }
+      if (questionNum == 3) {
+        fill("black")
+        textSize(30);
+        let questionText = text("Which shape was the largest?", 350, 60); 
+        textAlign(CENTER)
+        
+        answer1.mousePressed(gameOver);
+        answer2.mousePressed(gameOver);
+        answer3.mousePressed(correct);
+        answer4.mousePressed(gameOver);
+      }
+    }
+    if (level == 2) {
+      if (questionNum == 1) {
+        
+      }
+      if (questionNum == 2) {
+        
+      }
+      if (questionNum == 3) {
+        
+      }
+    }
+    if (level == 3) {
+      if (questionNum == 1) {
+        
+      }
+      if (questionNum == 2) {
+        
+      }
+      if (questionNum == 3) {
+        
+      }
+    }
+  }
+  
+  if (userState == "incorrect") {
+    
+  }
+}
+
+function correct() {
+  level = level + 1;
+  attemptNum = 0;
+  userState = "memoryNextLevel";
+  numDrawing = random(numbers)
+  removeElements()
+}
+
+function gameOver(){
+  userState = "lose";
+  level = 1;
+  removeElements();
+}
+
+function memoryNext() {
+  userState = "imageMemory";
+  removeElements();
+  frameCount = 0;
+  presentTime = 0;
+}
+
+function advance() {
+  userState = "questionMemory"
+  questionNum = random(numbers)
+  removeElements()
+}
+
+function selectMemory() {
+  userState = "selectMemory"
+  removeElements()
+}
+
+function homeScreen() {
+  
+}
+
+function gameSelect() {
+  
+}
