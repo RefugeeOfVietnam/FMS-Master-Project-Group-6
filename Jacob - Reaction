@@ -83,6 +83,9 @@ function draw(){
     textSize(24);
     fill("black")
     text("TIME ALOTTED: " + timeLimit, 25, 575);
+    textAlign(CENTER)
+    textSize(70);
+    text("Ready?", 350,300)
     if (frameCount % 5 == 0) {
       presentTime = presentTime + 0.05;
     }
@@ -109,6 +112,30 @@ function draw(){
     }
   }
   if (userState == "displayShape")  {
+    textAlign(LEFT)
+    textSize(24);
+    fill("black")
+    text("TIME ALOTTED: " + timeLimit, 25, 575);
+    
+    if (level == 1) {
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 1", 350, 60);
+      timeLimit = 1
+    }
+    if(level == 2) {
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 2", 350, 60);
+      timeLimit = 0.7
+    }
+    if(level == 3) {
+      textSize(50);
+      textAlign(CENTER)
+      text("LEVEL 3", 350, 60);
+      timeLimit = 0.4
+    }
+    
     shape = createButton("");
     shape.size(300,200);
     shape.mousePressed(gotIt)
@@ -179,7 +206,7 @@ function tooSlow() {
   attemptNum = 0;
 }
 
-function gameOver(){
+function gameOver() {
   userState = "lose";
   level = 1;
   removeElements();
