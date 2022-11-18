@@ -7,7 +7,8 @@ let questionNum;
 let countdown;
 let presentTime = 0
 let reactionNumbers = [1,2,3,4,5,6,7,8];
-let randTime = [1,1.25,1.5,1.75,2,2.25,2.5,2.75,3]
+let waitTime;
+let randTime = [1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3]
 
 function setup() {
   createCanvas(700, 600);
@@ -841,7 +842,7 @@ function draw() {
   }
   
   if (userState == "blankScreen") {
-    countDown = random(randTime) - presentTime;
+    countDown = waitTime - presentTime;
     textAlign(LEFT)
     textSize(24);
     fill("black")
@@ -1093,6 +1094,7 @@ function reactionNext() {
   removeElements();
   frameCount = 0;
   presentTime = 0;
+  waitTime = random(randTime)
 }
 
 function displayShape() {
