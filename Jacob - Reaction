@@ -78,7 +78,7 @@ function draw(){
   }
   
   if (userState == "blankScreen") {
-    countDown = timeLimit + random(randTime) - presentTime;
+    countDown = random(randTime) - presentTime;
     textAlign(LEFT)
     textSize(24);
     fill("black")
@@ -112,47 +112,60 @@ function draw(){
     shape = createButton("");
     shape.size(300,200);
     shape.mousePressed(gotIt)
+    
+    countdown = timeLimit - presentTime;
       
-    if (numbers == 1) {
+    if (shapePosition == 1) {
       shape.position(50, 100);
       shape.style('color:red')
     }
-    if (numbers == 2) {
+    if (shapePosition == 2) {
       shape.position(50, 100);
       shape.style('color:red')
     }
-    if (numbers == 3) {
+    if (shapePosition == 3) {
       shape.position(50, 100);
       shape.style('color:red')
     }
-    if (numbers == 4) {
+    if (shapePosition == 4) {
       shape.position(50, 100);
       shape.style('color:red')
     }
-    if (numbers == 5) {
+    if (shapePosition == 5) {
       shape.position(50, 100);
       shape.style('color:red')
     }
-    if (numbers == 6) {
+    if (shapePosition == 6) {
       shape.position(50, 100);
       shape.style('color:red')
     }
-    if (numbers == 7) {
+    if (shapePosition == 7) {
       shape.position(50, 100);
       shape.style('color:red')
     }
-    if (numbers == 8) {
+    if (shapePosition == 8) {
       shape.position(50, 100); 
       shape.style('color:red')
     }
     
-    }
   }
-  
-  if (userState == "incorrect") {
+  if (userState == "notQuite") {
+    text("Attempts remaining: " + (3 - attemptNum),20,50)  
+    text("Level: " + level + " / 3",550,51)
+    textSize(50)
     
+    let r1 = rect(150,100,400,150)
+    r1.text("Not Quite",250,188)
+    r1.textSize(25)
+    
+    retry = createButton("Try Again")
+    retry.position(300,430)
+    retry.size(100,70)
+    retry.style("font-size", "22px")
+    retry.mousePressed(reactionNext)
   }
 }
+
 
 function gotIt() {
   level = level + 1;
@@ -160,6 +173,10 @@ function gotIt() {
   userState = "reactionNextLevel";
   shapePosition = random(reactionNumbers)
   removeElements()
+}
+
+function tooSlow() {
+  attemptNum = 0;
 }
 
 function gameOver(){
@@ -178,6 +195,8 @@ function reactionNext() {
 function displayShape() {
   userState = "displayShape"
   shapePosition = random(reactionNumbers)
+  frameCount = 0;
+  presentTime = 0
   removeElements()
 }
 
