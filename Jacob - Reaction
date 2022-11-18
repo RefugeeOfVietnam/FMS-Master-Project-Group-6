@@ -75,7 +75,7 @@ function draw(){
     startOver.size(100,70)
     startOver.style('color:#0096FF');
     startOver.style('font-size','25px');
-    startOver.mousePressed(startReaction);
+    startOver.mousePressed(selectReaction);
   }
   
   if (userState == "blankScreen") {
@@ -142,7 +142,7 @@ function draw(){
     }
     
     shape = createButton("");
-    shape.size(300,200);
+    shape.size(125,100);
     shape.mousePressed(gotIt)
     
     if (countDown < 0) {
@@ -151,35 +151,35 @@ function draw(){
       
     if (shapePosition == 1) {
       shape.position(50, 100);
-      shape.style('background-color', '#ff0000')
+      shape.style('background-color', 'red')
     }
     if (shapePosition == 2) {
-      shape.position(50, 100);
-      shape.style('background-color', '#ff0000')
+      shape.position(250, 300);
+      shape.style('background-color', 'blue')
     }
     if (shapePosition == 3) {
-      shape.position(50, 100);
-      shape.style('background-color', '#ff0000')
+      shape.position(50, 200);
+      shape.style('background-color', 'yellow')
     }
     if (shapePosition == 4) {
-      shape.position(50, 100);
-      shape.style('background-color', '#ff0000')
+      shape.position(90, 200);
+      shape.style('background-color', 'green')
     }
     if (shapePosition == 5) {
-      shape.position(50, 100);
-      shape.style('background-color', '#ff0000')
+      shape.position(270, 300);
+      shape.style('background-color', 'purple')
     }
     if (shapePosition == 6) {
-      shape.position(50, 100);
-      shape.style('background-color', '#ff0000')
+      shape.position(400, 100);
+      shape.style('background-color', 'white')
     }
     if (shapePosition == 7) {
-      shape.position(50, 100);
-      shape.style('background-color', '#ff0000')
+      shape.position(350, 400);
+      shape.style('background-color', 'brown')
     }
     if (shapePosition == 8) {
-      shape.position(50, 100); 
-      shape.style('background-color', '#ff0000')
+      shape.position(180, 400); 
+      shape.style('background-color', 'gray')
     }
     
   }
@@ -223,7 +223,7 @@ function tooSlow() {
 function gameOver() {
   userState = "lose";
   level = 1;
-  attemptNum = 1;
+  attemptNum = 0;
   removeElements();
 }
 
@@ -242,8 +242,8 @@ function displayShape() {
   removeElements()
 }
 
-function selectMemory() {
-  userState = "selectMemory"
+function selectReaction() {
+  userState = "startReaction"
   removeElements()
 }
 
