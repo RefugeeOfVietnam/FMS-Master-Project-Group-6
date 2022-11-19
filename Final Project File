@@ -846,7 +846,7 @@ function draw() {
     textAlign(LEFT)
     textSize(24);
     fill("black")
-    text("TIME ALOTTED: " + timeLimit, 25, 575);
+    text("TIME ALOTTED: " + round(timeLimit * 1.5,3), 25, 575);
     textAlign(CENTER)
     textSize(70);
     text("Ready?", 350,300)
@@ -860,26 +860,26 @@ function draw() {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 1", 350, 60);
-      timeLimit = 0.9
+      timeLimit = 0.7667
     }
     if(level == 2) {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 2", 350, 60);
-      timeLimit = 0.6
+      timeLimit = 0.5333
     }
     if(level == 3) {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 3", 350, 60);
-      timeLimit = 0.35
+      timeLimit = 0.3667
     }
   }
   if (userState == "displayShape")  {
     textAlign(LEFT)
     textSize(24);
     fill("black")
-    text("TIME ALOTTED: " + timeLimit, 25, 575);
+    text("TIME ALOTTED: " + round(timeLimit * 1.5,3), 25, 575);
     countDown = timeLimit - presentTime;
     if (frameCount % 5 == 0) {
       presentTime = presentTime + 0.05;
@@ -889,19 +889,19 @@ function draw() {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 1", 350, 60);
-      timeLimit = 0.9
+      timeLimit = 0.7667
     }
     if(level == 2) {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 2", 350, 60);
-      timeLimit = 0.6
+      timeLimit = 0.5333
     }
     if(level == 3) {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 3", 350, 60);
-      timeLimit = 0.35
+      timeLimit = 0.3667
     }
     
     shape = createButton("");
