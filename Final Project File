@@ -860,19 +860,19 @@ function draw() {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 1", 350, 60);
-      timeLimit = 1
+      timeLimit = 0.9
     }
     if(level == 2) {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 2", 350, 60);
-      timeLimit = 0.7
+      timeLimit = 0.6
     }
     if(level == 3) {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 3", 350, 60);
-      timeLimit = 0.4
+      timeLimit = 0.35
     }
   }
   if (userState == "displayShape")  {
@@ -889,19 +889,19 @@ function draw() {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 1", 350, 60);
-      timeLimit = 1
+      timeLimit = 0.9
     }
     if(level == 2) {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 2", 350, 60);
-      timeLimit = 0.7
+      timeLimit = 0.6
     }
     if(level == 3) {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 3", 350, 60);
-      timeLimit = 0.4
+      timeLimit = 0.35
     }
     
     shape = createButton("");
