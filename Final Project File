@@ -2,7 +2,7 @@ let level = 1;
 let userState = "home"
 let attemptNum = 0
 let numbers = [1,2,3]
-let timeLimit = 3;
+let timeLimit;
 let questionNum;
 let countdown;
 let presentTime = 0
@@ -579,10 +579,10 @@ function draw() {
       advance()
     }
     if (level == 1) {
-      fill("black")
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 1", 350, 60);
+      timeLimit = 7;
       
       fill('#FDF800');
       circle(150, 350, 230);
@@ -599,6 +599,7 @@ function draw() {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 2", 350, 60);
+      timeLimit = 5;
       
       fill('#FF1111');
       circle(400, 250, 50);
@@ -616,6 +617,7 @@ function draw() {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 3", 350, 60);
+      timeLimit = 3;
       
       fill('#FDF800');
       circle(150, 350, 230);
