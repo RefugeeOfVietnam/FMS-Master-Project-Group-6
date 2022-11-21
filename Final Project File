@@ -603,15 +603,12 @@ function draw() {
       
       fill('#FF1111');
       circle(400, 150, 100);
-       fill('#FF1111');
       circle(300, 300, 100);
-       fill('#FF1111');
       circle(450, 300, 100);
       fill('#white');
       triangle(550, 200, 600, 50, 700, 200);
       fill('blue');
       rect(50, 500, 20, 30)
-      fill('blue');
       rect(150, 350, 20, 30)
       fill("green");
       polygon(100, 100, 70, 6);
