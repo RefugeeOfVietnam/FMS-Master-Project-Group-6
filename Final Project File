@@ -623,12 +623,12 @@ function draw() {
       text("LEVEL 3", 350, 60);
       timeLimit = 3;
       
-      fill('#black');
+      fill('black');
       circle(150, 250, 100); 
       circle(150, 100, 100);
       circle(250, 200, 100);
       circle(50, 150, 100);
-      fill('#purple');
+      fill('purple');
       triangle(450, 200, 450, 350, 600, 350);
       fill('grey');
       rect(500, 400, 200, 100)
@@ -764,7 +764,7 @@ function draw() {
       answer3.size(300,200);
       answer3.style("font-size", "25px")
       
-      answer4 = createButton("Purple Traingles");
+      answer4 = createButton("White Triangles");
       answer4.position(50, 300);
       answer4.size(300,200);
       answer4.style("font-size", "25px")
