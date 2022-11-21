@@ -761,7 +761,7 @@ function draw() {
       answer3.size(300,200);
       answer3.style("font-size", "25px")
       
-      answer4 = createButton("White Triangles");
+      answer4 = createButton("Purple Triangles");
       answer4.position(50, 300);
       answer4.size(300,200);
       answer4.style("font-size", "25px")
