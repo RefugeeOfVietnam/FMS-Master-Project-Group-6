@@ -2,7 +2,7 @@ let level = 1;
 let userState = "home"
 let attemptNum = 0
 let numbers = [1,2,3]
-let timeLimit;
+let timeLimit = 3;
 let questionNum;
 let countdown;
 let presentTime = 0
@@ -579,10 +579,10 @@ function draw() {
       advance()
     }
     if (level == 1) {
+      fill("black")
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 1", 350, 60);
-      timeLimit = 7;
       
       fill('#FDF800');
       circle(150, 350, 230);
@@ -599,35 +599,41 @@ function draw() {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 2", 350, 60);
-      timeLimit = 5;
       
       fill('#FF1111');
-      circle(400, 250, 50);
+      circle(400, 150, 100);
+       fill('#FF1111');
+      circle(300, 300, 100);
+       fill('#FF1111');
+      circle(450, 300, 100);
       fill('#white');
-      triangle(450, 200, 450, 350, 600, 350);
+      triangle(550, 200, 600, 50, 700, 200);
       fill('blue');
-      rect(50, 500, 20, 10)
+      rect(50, 500, 20, 30)
       fill('blue');
-      rect(150, 350, 20, 10)
+      rect(150, 350, 20, 30)
       fill("green");
-      polygon(450, 150, 70, 6);
+      polygon(100, 100, 70, 6);
       polygon(350, 450, 80, 6);
     }
     if(level == 3) {
       textSize(50);
       textAlign(CENTER)
       text("LEVEL 3", 350, 60);
-      timeLimit = 3;
       
-      fill('#FDF800');
-      circle(150, 350, 230);
-      fill('#FF1111');
+      fill('#black');
+      circle(150, 250, 100); 
+      circle(150, 100, 100);
+      circle(250, 200, 100);
+      circle(50, 150, 100);
+      fill('#purple');
       triangle(450, 200, 450, 350, 600, 350);
-      fill('Green');
-      rect(100, 100, 200, 100)
-      fill("purple");
+      fill('grey');
+      rect(500, 400, 200, 100)
+      fill("orange");
       polygon(600, 150, 70, 5);
-      polygon(350, 450, 80, 5);
+      polygon(400, 150, 70, 5);
+      polygon(250, 450, 80, 5);
     }
   }
   if (userState == "questionMemory")  {
@@ -723,10 +729,10 @@ function draw() {
         let questionText = text("What shape was in the top left corner?", 350, 60);
         textAlign(CENTER)
         
-        answer1.mousePressed(correct);
+        answer1.mousePressed(gameOver);
         answer2.mousePressed(gameOver);
         answer3.mousePressed(gameOver);
-        answer4.mousePressed(gameOver);
+        answer4.mousePressed(correct);
       }
       if (questionNum == 3) {
         fill("black")
@@ -734,8 +740,8 @@ function draw() {
         let questionText = text("What shape appeared the least?", 350, 60);
         textAlign(CENTER)
         
-        answer1.mousePressed(correct);
-        answer2.mousePressed(gameOver);
+        answer1.mousePressed(gameOver);
+        answer2.mousePressed(correct);
         answer3.mousePressed(gameOver);
         answer4.mousePressed(gameOver);
       }
@@ -763,29 +769,29 @@ function draw() {
       if (questionNum == 1) {
         fill("black")
         textSize(30);
-        let questionText = text(" ", 350, 60);
+        let questionText = text("What shape was in the bottom right?", 350, 60);
         textAlign(CENTER)
         
-        answer1.mousePressed(correct);
-        answer2.mousePressed(gameOver);
+        answer1.mousePressed(gameOver);
+        answer2.mousePressed(correct);
         answer3.mousePressed(gameOver);
         answer4.mousePressed(gameOver);
       }
       if (questionNum == 2) {
         fill("black")
         textSize(30);
-        let questionText = text(" ", 350, 60);
+        let questionText = text("What shape had only 3 objects?", 350, 60);
         textAlign(CENTER)
         
-        answer1.mousePressed(correct);
+        answer1.mousePressed(gameOver);
         answer2.mousePressed(gameOver);
-        answer3.mousePressed(gameOver);
+        answer3.mousePressed(correct);
         answer4.mousePressed(gameOver);
       }
       if (questionNum == 3) {
         fill("black")
         textSize(30);
-        let questionText = text(" ", 350, 60);
+        let questionText = text("What shape was grouped together the most?", 350, 60);
         textAlign(CENTER)
         
         answer1.mousePressed(correct);
